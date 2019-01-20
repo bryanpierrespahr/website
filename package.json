@@ -3,9 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
+    "concurrently": "^4.0.1",
+    "moment": "^2.22.2",
     "react": "^16.6.1",
+    "react-bootstrap": "^0.32.4",
+    "react-bootstrap-table-next": "^1.4.1",
+    "react-bootstrap-table2-paginator": "^1.0.4",
+    "react-bootstrap-table2-toolkit": "^1.1.1",
+    "react-bootstrap4-form-validation": "^1.0.10",
     "react-dom": "^16.6.1",
-    "react-scripts": "2.1.1"
+    "react-notifications": "^1.4.3",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.1",
+    "react-time-range": "^1.0.4",
+    "validator": "^10.9.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -13,6 +25,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:3001",
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -21,5 +34,11 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
