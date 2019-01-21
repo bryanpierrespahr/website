@@ -5,10 +5,13 @@ import {HomePage} from './components/HomePage';
 import {Login} from './components/Login.js';
 import {Signup} from './components/Signup.js';
 import Courses from './components/Courses.js';
+import Students from './components/Students.js';
 import NavigationBar from './components/NavigationBar';
 import Footer from './components/Footer';
 import AddCourse from './components/AddCourse';
 import EditCourse from './components/EditCourse';
+import AddStudent from './components/AddStudent';
+
 import {PrivateRoute} from './components/PrivateRoute.js';
 import './App.css';
 
@@ -27,7 +30,9 @@ class App extends Component {
                             <PrivateRoute path='/courses' component={Courses}/>
                             <PrivateRoute path="/course/add" component={AddCourse}/>
                             <PrivateRoute path="/course/edit" component={EditCourse}/>
-                            <PrivateRoute exact path="/customer/edit/:id" component={EditCourse}/>
+                            <PrivateRoute path='/students' component={Students}/>
+                            <PrivateRoute path="/student/add" component={AddStudent}/>
+
                         </Switch>
                         <Footer/>
                     </div>

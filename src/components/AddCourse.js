@@ -33,7 +33,7 @@ class AddCourse extends Component {
             language: this.state.language,
             level: this.state.level,
             type: this.state.type,
-            objective: this.state.objective,
+            objectives: this.state.objectives,
             teacherId: this.state.teacherId,
             schedule: {
                 day: this.state.day,
@@ -44,11 +44,9 @@ class AddCourse extends Component {
             weeks: [],
         }
 
-        console.log(course);
-
-        // API.postCourse(course).then(function (data) {
-        //     window.location = "/courses";
-        // })
+        API.postCourse(course).then(function (data) {
+            window.location = "/courses";
+        })
 
 
     }
@@ -99,7 +97,7 @@ class AddCourse extends Component {
             language: 'Finnish',
             level: 'Profile studies',
             type: 'Compulsory',
-            objective: '',
+            objectives: '',
             day: 'Monday',
             startHour: '19700101T090000+0100',
             endHour: '19700101T110000+0100',

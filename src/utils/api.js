@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const headers =  {
+const headers = {
     'Accept': 'application/json',
     'Content-Type': 'application/json',
 }
@@ -19,7 +19,7 @@ export default {
 
     signup: function (send) {
 
-        return fetch(burl+ '/user/signup', {
+        return fetch(burl + '/user/signup', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -39,6 +39,10 @@ export default {
 
     getStudent: function (studentId) {
         return axios.get(burl + "/student/" + studentId)
+    },
+
+    getAllStudents: function () {
+        return axios.get(burl + "/student");
     },
 
     getAllCourses: function () {
@@ -114,8 +118,47 @@ export default {
             })
     },
 
+    // patchCourse: function (courseId, course) {
+    //     return axios.patch(burl + "/course/" + courseId, [{
+    //             "propName": "name", "value": course.name
+    //         }]
+    //         , {
+    //             headers: headers
+    //         })
+    // },
+
+    patchCourse: function (courseId, course) {
+        return axios.patch(burl + "/course/" + courseId, [{
+                "propName": "name", "value": course.name
+            }, {
+                "propName": "code", "value": course.code
+            }, {
+                "propName": "scope", "value": course.scope
+            }, {
+                "propName": "timing", "value": course.timing
+            }, {
+                "propName": "language", "value": course.language
+            }, {
+                "propName": "level", "value": course.level
+            }, {
+                "propName": "type", "value": course.type
+            }, {
+                "propName": "objectives", "value": course.objectives
+            }, {
+                "propName": "teacherId", "value": course.teacherId
+            }]
+            , {
+                headers: headers
+            })
+    },
+
+
     postCourse: function (course) {
         return axios.post(burl + '/course', course, {headers: headers})
+    },
+
+    postStudent: function (student) {
+        return axios.post(burl + '/student', student, {headers: headers})
     },
 
     postLecture: function (lecture) {
@@ -130,8 +173,12 @@ export default {
         return axios.post(burl + '/quiz', quiz, {headers: headers})
     },
 
-    deleteCourse: function(courseId){
-        return axios.delete(burl + '/course/' +courseId);
+    deleteCourse: function (courseId) {
+        return axios.delete(burl + '/course/' + courseId);
+    },
+
+    deleteStudent: function (studentId) {
+        return axios.delete(burl + '/student/' + studentId);
     }
 
 }

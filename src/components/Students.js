@@ -5,7 +5,7 @@ import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 import API from '../utils/api.js';
 
-class Courses extends Component {
+class Students extends Component {
 
     //Method that returns a custom "edit" button
     editButton = (cell) => {
@@ -29,55 +29,58 @@ class Courses extends Component {
 
         return (
             <button className="btn btn-danger"
-                    onClick={() => this.deleteCourse(cell)}>Delete</button>
+                    onClick={() => this.deleteStudent(cell)}>Delete</button>
 
         );
     }
 
-    //Method called when the "Delete" button is pressed, delete the course via the API
-    deleteCourse = (courseId) => {
+    //Method called when the "Delete" button is pressed, delete the student via the API
+    deleteStudent = (studentId) => {
 
-        API.deleteCourse(courseId)
+        API.deleteStudent(studentId)
             .then(() => {
-                window.location = "/courses";
+                window.location = "/students";
             })
 
     }
 
     constructor(props) {
         super(props);
-        this.state = {courses: []};
+        this.state = {students: []};
     }
 
     componentDidMount() {
 
 
-        API.getAllCourses()
+        API.getAllStudents()
             .then((data) => {
                 this.setState({
-                    courses: data.data
+                    students: data.data
                 })
             })
             .catch((error) => {
                 console.log(error);
             })
-
     }
 
     render() {
 
         //Initiate the columns that are passed to the table component
         const columns = [{
-            dataField: 'name',
-            text: 'Name',
+            dataField: 'firstName',
+            text: 'First name',
             sort: true
         }, {
-            dataField: 'code',
-            text: 'Code',
+            dataField: 'lastName',
+            text: 'Last name',
             sort: true
         }, {
-            dataField: 'language',
-            text: 'Language',
+            dataField: 'number',
+            text: 'Number',
+            sort: true
+        },{
+            dataField: 'email',
+            text: 'email',
             sort: true
         }, {
             dataField: '_id',
@@ -92,14 +95,14 @@ class Courses extends Component {
         return (
 
             <div className="col-10 mx-auto">
-                <h3 className="titleMarginTop text-left">Courses</h3>
-                <Table data={this.state.courses}
+                <h3 className="titleMarginTop text-left">Students</h3>
+                <Table data={this.state.students}
                        columns={columns}
-                       id="code"
-                       sort="name"
-                       search="a course"/>
-                <Link className="btn btn-custom float-left" to="/course/add">
-                    Add a course
+                       id="number"
+                       sort="lastName"
+                       search="a student"/>
+                <Link className="btn btn-custom float-left" to="/student/add">
+                    Add a student
                 </Link>
                 <NotificationContainer/>
             </div>
@@ -107,4 +110,4 @@ class Courses extends Component {
     }
 }
 
-export default Courses;
+export default Students;
