@@ -118,15 +118,6 @@ export default {
             })
     },
 
-    // patchCourse: function (courseId, course) {
-    //     return axios.patch(burl + "/course/" + courseId, [{
-    //             "propName": "name", "value": course.name
-    //         }]
-    //         , {
-    //             headers: headers
-    //         })
-    // },
-
     patchCourse: function (courseId, course) {
         return axios.patch(burl + "/course/" + courseId, [{
                 "propName": "name", "value": course.name
@@ -146,6 +137,22 @@ export default {
                 "propName": "objectives", "value": course.objectives
             }, {
                 "propName": "teacherId", "value": course.teacherId
+            }]
+            , {
+                headers: headers
+            })
+    },
+
+
+    patchStudent: function (studentId, student) {
+        return axios.patch(burl + "/student/" + studentId, [{
+                "propName": "firstName", "value": student.firstName
+            }, {
+                "propName": "lastName", "value": student.lastName
+            }, {
+                "propName": "email", "value": student.email
+            }, {
+                "propName": "number", "value": student.number
             }]
             , {
                 headers: headers

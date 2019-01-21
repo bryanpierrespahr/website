@@ -1,33 +1,43 @@
 import React, {Component} from 'react';
-import {SelectGroup, TextInput, ValidationForm} from "react-bootstrap4-form-validation";
 import {NotificationManager, NotificationContainer} from "react-notifications";
-import {Redirect} from 'react-router-dom';
+import {SelectGroup, TextInput, ValidationForm} from "react-bootstrap4-form-validation";
+import validator from 'validator';
 import TimeRange from 'react-time-range';
-import moment from 'moment';
+import {Redirect} from 'react-router-dom';
 import API from "../utils/api";
 
-//Component AddStudent to add a new student
-class AddStudent extends Component {
+//Component class that renders a form to edit a student info using 'bootstrap4-form-validation'
+class EditStudent extends Component {
 
-    //Add the student via the API with a POST request
-    addStudent = (event) => {
+    //Save the modifications and update the courses info with the API via a POST request
+    saveModification = (e) => {
 
-        //Prevent the default action
-        event.preventDefault();
+        e.preventDefault();
 
-        const student = {
+        var student = {
             number: this.state.number,
             firstName: this.state.firstName,
             lastName: this.state.lastName,
             email: this.state.email,
             password: this.state.password
+
         }
 
-        API.postStudent(student).then(function (data) {
-            window.location = "/students";
-        })
+        API.patchStudent(this.props.location.param1, student);
 
+    }
 
+    //Called when the "Cancel" button is pressed, redirect to the previous /courses URL
+    backToStudents = () => {
+
+        this.props.history.push('/students');
+
+    }
+
+    //Handle the change on input fields
+    inputChanged = (event) => {
+        //Set the new value to the appropriate state
+        this.setState({[event.target.name]: event.target.value})
     }
 
     //Alert the user if there is any input errors
@@ -35,13 +45,9 @@ class AddStudent extends Component {
         console.error(errorInputs);
         NotificationManager.error("Error with the values entered, please try again");
     }
-
-    //Handle the change on input fields
-    inputChanged = (event) => {
-
-        //Set the new value to the appropriate state
-        this.setState({[event.target.name]: event.target.value})
-
+    //Check that the 2 passwords entered match with each other
+    matchPassword = (value) => {
+        return value && value === this.state.password;
     }
 
     //Constructor
@@ -52,8 +58,6 @@ class AddStudent extends Component {
             firstName: '',
             lastName: '',
             email: '',
-            password: '',
-            password2: '',
             redirect: false,
         }
     }
@@ -61,12 +65,21 @@ class AddStudent extends Component {
     //Used to get data from the API via HTTP GET Request
     componentDidMount() {
 
+        API.getStudent(this.props.location.param1)
+            .then((data) => {
 
-    }
+                var student = data.data;
 
-    //Check that the 2 passwords entered match with each other
-    matchPassword = (value) => {
-        return value && value === this.state.password;
+                this.setState({
+                    firstName: student.firstName,
+                    lastName: student.lastName,
+                    number: student.number,
+                    email: student.email,
+                })
+            })
+            .catch((error) => {
+                console.log(error);
+            })
     }
 
     //Render method
@@ -116,29 +129,14 @@ class AddStudent extends Component {
                             </div>
 
                         </div>
-                        <div className="form-row">
-                            <div className="form-group col-md-6 mx-auto">
-                                <label htmlFor="password" className="float-left">Password</label>
-                                <TextInput name="password" className="form-control" id="password" type="password"
-                                           value={this.state.password} onChange={this.inputChanged}
-                                           required
-                                />
-                            </div>
-                            <div className="form-group col-md-6 mx-auto">
-                                <label htmlFor="password2" className="float-left">Confirm password</label>
-                                <TextInput name="password2" className="form-control" id="password2" type="password"
-                                           value={this.state.password2} onChange={this.inputChanged}
-                                           required validator={this.matchPassword}
-                                           errorMessage={{
-                                               required: "Confirm password is required",
-                                               validator: "Password doesn't match"
-                                           }}
-                                />
-                            </div>
-                        </div>
                         <div className="col-md-10 mx-auto">
-                            <button onClick={this.addStudent}
-                                    name="submit" type="submit" className="btn btn-primary">Add student
+                            <button onClick={this.backToStudents} className="btn btn-danger" style={{
+                                margin: '1%'
+                            }}>Cancel
+                            </button>
+                            <button type="submit" className="btn btn-success" style={{
+                                margin: '1%'
+                            }}>Save
                             </button>
                         </div>
                     </div>
@@ -149,6 +147,6 @@ class AddStudent extends Component {
     }
 }
 
-export default AddStudent;
+export default EditStudent;
 
 

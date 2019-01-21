@@ -11,7 +11,7 @@ import Footer from './components/Footer';
 import AddCourse from './components/AddCourse';
 import EditCourse from './components/EditCourse';
 import AddStudent from './components/AddStudent';
-
+import EditStudent from './components/EditStudent';
 import {PrivateRoute} from './components/PrivateRoute.js';
 import './App.css';
 
@@ -32,7 +32,7 @@ class App extends Component {
                             <PrivateRoute path="/course/edit" component={EditCourse}/>
                             <PrivateRoute path='/students' component={Students}/>
                             <PrivateRoute path="/student/add" component={AddStudent}/>
-
+                            <PrivateRoute path="/student/edit" component={EditStudent}/>
                         </Switch>
                         <Footer/>
                     </div>

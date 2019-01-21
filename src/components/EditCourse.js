@@ -104,7 +104,7 @@ class EditCourse extends Component {
 
     }
 
-    
+
     timeChanged = (event) => {
 
         console.log("CHANGED")
