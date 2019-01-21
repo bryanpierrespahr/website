@@ -14,12 +14,6 @@ class EditCourse extends Component {
 
         e.preventDefault();
 
-        console.log("SAVE MODIFICATION")
-
-        var url = "http://192.168.0.106:3001/course/" + this.props.location.param1;
-
-        console.log(url);
-
         var course = {
             name: this.state.name,
             code: this.state.code,
@@ -39,51 +33,9 @@ class EditCourse extends Component {
 
         console.log(course);
 
-        API.patchCourse(this.props.location.param1, course);
-
-        // fetch(url, {
-        //     method: 'PATCH',
-        //     headers: {
-        //         'Accept': 'application/json',
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify({
-        //         name: this.state.name
-        //     })
-        // }).then(() => {
-        //     console.log("SUCCESS")
-        // });
-
-        // fetch(url, {
-        //     method: 'PATCH', //PATCH method
-        //     headers: {
-        //         'Accept': 'application/json',
-        //         'Content-Type': 'application/json',
-        //     },
-        //     //Convert the customer object to a string and insert it in the body of the request
-        //     body: JSON.stringify({
-        //         firstname: this.state.firstName,
-        //         lastname: this.state.lastName,
-        //         streetaddress: this.state.address,
-        //         postcode: this.state.postCode,
-        //         city: this.state.city,
-        //         email: this.state.email,
-        //         phone: this.state.phone,
-        //     })
-        //
-        // }).then(() => {
-        //     //Notify the user of the success of the request
-        //     NotificationManager.success("Modifications saved !")
-        //     setTimeout(() => {
-        //         //Redirect the user after 2 sec
-        //         this.setState({
-        //             redirect: true
-        //         });
-        //     }, 2000);
-        // }).catch((error) => {
-        //     //If the request failed, notify the user
-        //     NotificationManager.error("Error updating customer, please try again later");
-        // });
+        API.patchCourse(this.props.location.param1, course).then(() => {
+            window.location = "/courses"
+        })
 
     }
 

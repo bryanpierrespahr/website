@@ -6,33 +6,31 @@ import TimeRange from 'react-time-range';
 import {Redirect} from 'react-router-dom';
 import API from "../utils/api";
 
-//Component class that renders a form to edit a student info using 'bootstrap4-form-validation'
-class EditStudent extends Component {
+//Component class that renders a form to edit a teacher info using 'bootstrap4-form-validation'
+class EditTeacher extends Component {
 
     //Save the modifications and update the courses info with the API via a POST request
     saveModification = (e) => {
 
         e.preventDefault();
 
-        var student = {
-            number: this.state.number,
+        var teacher = {
             firstName: this.state.firstName,
             lastName: this.state.lastName,
-            email: this.state.email,
-            password: this.state.password
-
+            email: this.state.email
         }
 
-        API.patchStudent(this.props.location.param1, student) .then(() => {
-            window.location = "/students"
-        })
+        API.patchTeacher(this.props.location.param1, teacher)
+            .then(() => {
+                window.location = "/teachers"
+            })
 
     }
 
-    //Called when the "Cancel" button is pressed, redirect to the previous /courses URL
-    backToStudents = () => {
+    //Called when the "Cancel" button is pressed, redirect to the previous /teachers URL
+    backToTeachers = () => {
 
-        this.props.history.push('/students');
+        this.props.history.push('/teachers');
 
     }
 
@@ -47,16 +45,11 @@ class EditStudent extends Component {
         console.error(errorInputs);
         NotificationManager.error("Error with the values entered, please try again");
     }
-    //Check that the 2 passwords entered match with each other
-    matchPassword = (value) => {
-        return value && value === this.state.password;
-    }
 
     //Constructor
     constructor(props) {
         super(props);
         this.state = {
-            number: '',
             firstName: '',
             lastName: '',
             email: '',
@@ -67,16 +60,15 @@ class EditStudent extends Component {
     //Used to get data from the API via HTTP GET Request
     componentDidMount() {
 
-        API.getStudent(this.props.location.param1)
+        API.getTeacher(this.props.location.param1)
             .then((data) => {
 
-                var student = data.data;
+                var teacher = data.data;
 
                 this.setState({
-                    firstName: student.firstName,
-                    lastName: student.lastName,
-                    number: student.number,
-                    email: student.email,
+                    firstName: teacher.firstName,
+                    lastName: teacher.lastName,
+                    email: teacher.email,
                 })
             })
             .catch((error) => {
@@ -95,44 +87,38 @@ class EditStudent extends Component {
             return (
                 //Return the form
                 <ValidationForm onSubmit={this.saveModification} onErrorSubmit={this.handleErrorSubmit}
-                                action="/students">
+                                action="/teachers">
                     <div className="col-md-6 mx-auto">
                         <div className="form-row">
                             <div className="form-group col-md-6 mx-auto">
                                 <label htmlFor="firstName" className="float-left">First name</label>
                                 <TextInput name="firstName" className="form-control" id="firstName"
-                                           placeholder="Enter student first name"
+                                           placeholder="Enter teacher first name"
                                            value={this.state.firstName} onChange={this.inputChanged}
                                            required
                                 />
                             </div>
                             <div className="form-group col-md-6 mx-auto">
                                 <label htmlFor="lastName" className="float-left">Last name</label>
-                                <TextInput className="form-control" id="code" placeholder="Enter student last name"
+                                <TextInput className="form-control" id="code" placeholder="Enter teacher last name"
                                            name="lastName" value={this.state.lastName} onChange={this.inputChanged}
                                            required/>
                             </div>
                         </div>
                         <div className="form-row">
-                            <div className="form-group col-md-5 mx-auto">
-                                <label htmlFor="number" className="float-left">Number</label>
-                                <TextInput name="number" className="form-control" id="number"
-                                           placeholder="Enter student number"
-                                           value={this.state.number} onChange={this.inputChanged}
-                                           required/>
-                            </div>
                             <div className="form-group col-md-7 mx-auto">
                                 <label htmlFor="email" className="float-left">Email</label>
                                 <TextInput name="email" className="form-control" id="email"
-                                           placeholder="Enter student email address"
+                                           placeholder="Enter teacher email address"
                                            value={this.state.email} onChange={this.inputChanged}
                                            required
                                 />
                             </div>
-
+                            <div className="form-group col-md-5 mx-auto">
+                            </div>
                         </div>
                         <div className="col-md-10 mx-auto">
-                            <button onClick={this.backToStudents} className="btn btn-danger" style={{
+                            <button onClick={this.backToTeachers} className="btn btn-danger" style={{
                                 margin: '1%'
                             }}>Cancel
                             </button>
@@ -149,6 +135,6 @@ class EditStudent extends Component {
     }
 }
 
-export default EditStudent;
+export default EditTeacher;
 
 

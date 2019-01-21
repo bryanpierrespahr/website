@@ -135,7 +135,7 @@ class AddCourse extends Component {
         } else {
             return (
                 //Return the form
-                <ValidationForm onSubmit={this.saveModification} onErrorSubmit={this.handleErrorSubmit}
+                <ValidationForm onErrorSubmit={this.handleErrorSubmit}
                                 action="/customers">
                     <div className="col-md-6 mx-auto">
                         <div className="form-row">

@@ -6,12 +6,15 @@ import {Login} from './components/Login.js';
 import {Signup} from './components/Signup.js';
 import Courses from './components/Courses.js';
 import Students from './components/Students.js';
+import Teachers from './components/Teachers.js';
 import NavigationBar from './components/NavigationBar';
 import Footer from './components/Footer';
 import AddCourse from './components/AddCourse';
 import EditCourse from './components/EditCourse';
 import AddStudent from './components/AddStudent';
 import EditStudent from './components/EditStudent';
+import AddTeacher from './components/AddTeacher';
+import EditTeacher from './components/EditTeacher';
 import {PrivateRoute} from './components/PrivateRoute.js';
 import './App.css';
 
@@ -33,6 +36,9 @@ class App extends Component {
                             <PrivateRoute path='/students' component={Students}/>
                             <PrivateRoute path="/student/add" component={AddStudent}/>
                             <PrivateRoute path="/student/edit" component={EditStudent}/>
+                            <PrivateRoute path='/teachers' component={Teachers}/>
+                            <PrivateRoute path="/teacher/add" component={AddTeacher}/>
+                            <PrivateRoute path="/teacher/edit" component={EditTeacher}/>
                         </Switch>
                         <Footer/>
                     </div>

@@ -159,6 +159,18 @@ export default {
             })
     },
 
+    patchTeacher: function (teacherId, teacher) {
+        return axios.patch(burl + "/teacher/" + teacherId, [{
+                "propName": "firstName", "value": teacher.firstName
+            }, {
+                "propName": "lastName", "value": teacher.lastName
+            }, {
+                "propName": "email", "value": teacher.email
+            }]
+            , {
+                headers: headers
+            })
+    },
 
     postCourse: function (course) {
         return axios.post(burl + '/course', course, {headers: headers})
@@ -166,6 +178,10 @@ export default {
 
     postStudent: function (student) {
         return axios.post(burl + '/student', student, {headers: headers})
+    },
+
+    postTeacher: function (teacher) {
+        return axios.post(burl + '/teacher', teacher, {headers: headers})
     },
 
     postLecture: function (lecture) {
@@ -186,6 +202,10 @@ export default {
 
     deleteStudent: function (studentId) {
         return axios.delete(burl + '/student/' + studentId);
+    },
+
+    deleteTeacher: function (teacherId) {
+        return axios.delete(burl + '/teacher/' + teacherId);
     }
 
 }
