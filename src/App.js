@@ -5,6 +5,7 @@ import {HomePage} from './components/HomePage';
 import {Login} from './components/Login.js';
 import {Signup} from './components/Signup.js';
 import Courses from './components/Courses.js';
+import Course from './components/Course';
 import Students from './components/Students.js';
 import Teachers from './components/Teachers.js';
 import NavigationBar from './components/NavigationBar';
@@ -39,6 +40,7 @@ class App extends Component {
                             <PrivateRoute path='/teachers' component={Teachers}/>
                             <PrivateRoute path="/teacher/add" component={AddTeacher}/>
                             <PrivateRoute path="/teacher/edit" component={EditTeacher}/>
+                            <PrivateRoute path="/course/:courseName" component={Course}/>
                         </Switch>
                         <Footer/>
                     </div>

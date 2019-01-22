@@ -41,6 +41,10 @@ export default {
         return axios.get(burl + "/student/" + studentId)
     },
 
+    getTeacherByEmail: function (email) {
+        return axios.get(burl + "/teacher/email/" + email)
+    },
+
     getAllStudents: function () {
         return axios.get(burl + "/student");
     },
@@ -53,6 +57,10 @@ export default {
         return axios.get(burl + "/course/" + courseId);
     },
 
+    // getCourseByTeacher: function (teacherId) {
+    //     return axios.get(burl + "/course/teacher/" + teacherId);
+    // },
+
     getWeek: function (weekId) {
         return axios.get(burl + "/week/" + weekId);
     },
@@ -63,6 +71,10 @@ export default {
 
     getLecture: function (lectureId) {
         return axios.get(burl + "/lecture/" + lectureId);
+    },
+
+    getQuiz: function (quizId) {
+        return axios.get(burl + "/quiz/" + quizId);
     },
 
     getAllTeachers: function () {

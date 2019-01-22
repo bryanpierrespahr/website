@@ -16,7 +16,8 @@ export class Signup extends React.Component {
 
         var _send = {
             email: this.state.email,
-            password: this.state.password
+            password: this.state.password,
+            role: "teacher",
         }
 
         API.signup(_send)

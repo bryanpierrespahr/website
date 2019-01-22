@@ -22,9 +22,16 @@ export class Login extends React.Component {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                if(data.token != null){
+                if (data.token != null) {
                     sessionStorage.setItem('token', data.token);
                     sessionStorage.setItem('id', data.user._id);
+
+                    if (data.user.role == "teacher") {
+                        API.getTeacherByEmail(this.state.email)
+                            .then((data) => {
+                                sessionStorage.setItem('teacherId', data.data._id);
+                            })
+                    }
                     window.location = "/dashboard"
                 }
             })

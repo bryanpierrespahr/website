@@ -46,7 +46,6 @@ td, tr {
 }
 
 .Login {
-
     width: 100%;
     max-width: 600px;
     margin: auto;
@@ -56,4 +55,16 @@ td, tr {
 
 .move-left{
     text-align:left;
+}
+
+.weekContent{
+    padding-top: 4px;
+}
+
+.marginLeft5px{
+    margin-left: 5px;
+}
+
+.weekTitle{
+    margin-top: 6px;
 }
