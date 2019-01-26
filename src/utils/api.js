@@ -190,6 +190,12 @@ export default {
         }])
     },
 
+    patchLinkWeek: function(weekId, links){
+        return axios.patch(burl + "/week/" + weekId, [{
+            "propName": "linksId", "value": links
+        }])
+    },
+
     postCourse: function (course) {
         return axios.post(burl + '/course', course, {headers: headers})
     },

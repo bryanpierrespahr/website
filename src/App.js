@@ -3,7 +3,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {Dashboard} from './components/Dashboard.js';
 import {HomePage} from './components/HomePage';
 import {Login} from './components/Login.js';
-import {Signup} from './components/Signup.js';
+import {SignUp} from './components/SignUp.js';
 import Courses from './components/Courses.js';
 import Course from './components/Course';
 import Students from './components/Students.js';
@@ -17,6 +17,7 @@ import EditStudent from './components/EditStudent';
 import AddTeacher from './components/AddTeacher';
 import EditTeacher from './components/EditTeacher';
 import CreateQuiz from './components/CreateQuiz.js';
+import CreateLink from './components/CreateLink.js';
 import {PrivateRoute} from './components/PrivateRoute.js';
 import './App.css';
 
@@ -30,7 +31,7 @@ class App extends Component {
                         <Switch>
                             <Route exact path="/" component={HomePage}/>
                             <Route exact path="/login" component={Login}/>
-                            <Route exact path="/signup" component={Signup}/>
+                            <Route exact path="/signup" component={SignUp}/>
                             <PrivateRoute path='/dashboard' component={Dashboard}/>
                             <PrivateRoute path='/courses' component={Courses}/>
                             <PrivateRoute path="/course/add" component={AddCourse}/>
@@ -43,6 +44,7 @@ class App extends Component {
                             <PrivateRoute path="/teacher/edit" component={EditTeacher}/>
                             <PrivateRoute path="/course/:courseName" component={Course}/>
                             <PrivateRoute path="/quiz/add" component={CreateQuiz}/>
+                            <PrivateRoute path="/link/add" component={CreateLink}/>
                         </Switch>
                         <Footer/>
                     </div>

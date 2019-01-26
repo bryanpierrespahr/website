@@ -69,7 +69,7 @@ class CreateQuiz extends Component {
                         )
                     })
 
-                //window.location = "/course/" + this.state.courseId;
+                window.location = "/course/" + this.state.courseId;
             })
     }
 

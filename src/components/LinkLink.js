@@ -40,7 +40,7 @@ class LinkLink extends Component {
                         <div className="col">
                             <div className="text-left weekContent">
                                 <FaLink></FaLink>
-                                <a className="marginLeft5px" href={this.state.link}>{this.state.title}</a>
+                                <a target="_blank" rel="noopener noreferrer" className="marginLeft5px" href={this.state.link}>{this.state.title}</a>
                             </div>
                         </div>
                     </div>

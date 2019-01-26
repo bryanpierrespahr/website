@@ -2,7 +2,7 @@ import React from 'react';
 import {Button, FormGroup, FormControl, ControlLabel} from "react-bootstrap";
 import API from '../utils/api';
 
-export class Signup extends React.Component {
+export class SignUp extends React.Component {
 
 
     send = (event) => {

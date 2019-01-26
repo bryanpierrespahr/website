@@ -3,8 +3,9 @@ import API from '../utils/api.js';
 import LectureLink from './LectureLink';
 import LinkLink from './LinkLink';
 import QuizLink from './QuizLink';
-import AddContent from './AddContent';
 import AddQuiz from "./AddQuiz";
+import AddLink from "./AddQuiz";
+import AddLecture from "./AddLecture";
 
 class Week extends Component {
 
@@ -56,7 +57,7 @@ class Week extends Component {
                     </div>
                     <div className="row">
                         <div className="col">
-                            <AddContent type="lecture" course={this.state.course}></AddContent>
+                            <AddLecture weekId={this.props.id} weekNo={this.state.no} no={this.state.lecturesId.length+1} type="lecture" course={this.state.course}></AddLecture>
                         </div>
                     </div>
                     <div className="row">
@@ -68,7 +69,7 @@ class Week extends Component {
                     </div>
                     <div className="row">
                         <div className="col">
-                            <AddContent type="link" course={this.state.course}></AddContent>
+                            <AddLink weekId={this.props.id} weekNo={this.state.no} no={this.state.linksId.length+1} type="link" course={this.state.course}></AddLink>
                         </div>
                     </div>
                     <div className="row">
