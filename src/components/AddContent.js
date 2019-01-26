@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {MdAdd} from 'react-icons/md';
 import {Link} from 'react-router-dom';
 
-class Lecture extends Component {
+class AddContent extends Component {
 
     constructor(props) {
         super(props);
@@ -35,4 +35,4 @@ class Lecture extends Component {
     }
 }
 
-export default Lecture;
+export default AddContent;

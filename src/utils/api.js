@@ -5,7 +5,7 @@ const headers = {
     'Content-Type': 'application/json',
 }
 
-const burl = "http://192.168.0.101:3001";
+const burl = "http://192.168.0.102:3001";
 
 export default {
 
@@ -182,6 +182,12 @@ export default {
             , {
                 headers: headers
             })
+    },
+
+    patchQuizWeek: function(weekId, quizzes){
+        return axios.patch(burl + "/week/" + weekId, [{
+            "propName": "quizzesId", "value": quizzes
+        }])
     },
 
     postCourse: function (course) {

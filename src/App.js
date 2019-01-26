@@ -16,6 +16,7 @@ import AddStudent from './components/AddStudent';
 import EditStudent from './components/EditStudent';
 import AddTeacher from './components/AddTeacher';
 import EditTeacher from './components/EditTeacher';
+import CreateQuiz from './components/CreateQuiz.js';
 import {PrivateRoute} from './components/PrivateRoute.js';
 import './App.css';
 
@@ -41,6 +42,7 @@ class App extends Component {
                             <PrivateRoute path="/teacher/add" component={AddTeacher}/>
                             <PrivateRoute path="/teacher/edit" component={EditTeacher}/>
                             <PrivateRoute path="/course/:courseName" component={Course}/>
+                            <PrivateRoute path="/quiz/add" component={CreateQuiz}/>
                         </Switch>
                         <Footer/>
                     </div>

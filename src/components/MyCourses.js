@@ -24,16 +24,6 @@ class MyCourses extends Component {
         );
     }
 
-    //Method called when the "Delete" button is pressed, delete the course via the API
-    selectCourse = (courseId) => {
-
-        API.deleteCourse(courseId)
-            .then(() => {
-                window.location = "/courses";
-            })
-
-    }
-
     constructor(props) {
         super(props);
         this.state = {

@@ -4,6 +4,7 @@ import LectureLink from './LectureLink';
 import LinkLink from './LinkLink';
 import QuizLink from './QuizLink';
 import AddContent from './AddContent';
+import AddQuiz from "./AddQuiz";
 
 class Week extends Component {
 
@@ -16,14 +17,13 @@ class Week extends Component {
 
     componentDidMount() {
 
-        console.log(this.props.id);
-
         API.getWeek(this.props.id)
             .then(data => {
 
                 var week = data.data;
 
                 this.setState({
+                    course: this.props.course,
                     no: week.no,
                     lecturesId: week.lecturesId,
                     linksId: week.linksId,
@@ -50,37 +50,37 @@ class Week extends Component {
                     <div className="row">
                         <div className="col">
                             {this.state.lecturesId.map(lectureId => {
-                                return <LectureLink id={lectureId}/>
+                                return <LectureLink id={lectureId} course={this.state.course}/>
                             })}
                         </div>
                     </div>
                     <div className="row">
                         <div className="col">
-                            <AddContent type="lecture"></AddContent>
+                            <AddContent type="lecture" course={this.state.course}></AddContent>
                         </div>
                     </div>
                     <div className="row">
                         <div className="col">
                             {this.state.linksId.map(linkId => {
-                                return <LinkLink id={linkId}/>
+                                return <LinkLink id={linkId} course={this.state.course}/>
                             })}
                         </div>
                     </div>
                     <div className="row">
                         <div className="col">
-                            <AddContent type="link"></AddContent>
+                            <AddContent type="link" course={this.state.course}></AddContent>
                         </div>
                     </div>
                     <div className="row">
                         <div className="col">
                             {this.state.quizzesId.map(quizId => {
-                                return <QuizLink id={quizId}/>
+                                return <QuizLink id={quizId} course={this.state.course}/>
                             })}
                         </div>
                     </div>
                     <div className="row">
                         <div className="col">
-                            <AddContent type="quiz"></AddContent>
+                            <AddQuiz weekId={this.props.id} weekNo={this.state.no} no={this.state.quizzesId.length+1} type="quiz" course={this.state.course} ></AddQuiz>
                         </div>
                     </div>
                 </div>

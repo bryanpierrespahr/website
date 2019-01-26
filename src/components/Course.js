@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import API from '../utils/api.js';
 import Week from './Week';
+
 class Course extends Component {
 
 
@@ -13,36 +14,66 @@ class Course extends Component {
 
     componentDidMount() {
 
-        API.getCourse(this.props.location.courseId).then((data) => {
+        if (this.props.location.courseId != null) {
 
-            var course = data.data;
+            API.getCourse(this.props.location.courseId).then((data) => {
 
-            this.setState({
-                name: course.name,
-                code: course.code,
-                scope: course.scope,
-                timing: course.timing,
-                language: course.language,
-                level: course.level,
-                type: course.type,
-                schedule: course.schedule,
-                weeksId: course.weeksId
+                var course = data.data;
+
+                this.setState({
+                    course: course,
+                    name: course.name,
+                    code: course.code,
+                    scope: course.scope,
+                    timing: course.timing,
+                    language: course.language,
+                    level: course.level,
+                    type: course.type,
+                    schedule: course.schedule,
+                    weeksId: course.weeksId
+                })
+
+
+            }).then(() => {
+                this.setState({
+                    ready: true,
+                })
             })
 
-            console.log(this.state.weeksId);
+        } else {
 
-        }).then(() => {
-            this.setState({
-                ready: true,
+            API.getCourse(this.props.match.params.courseName).then((data) => {
+
+                var course = data.data;
+
+                this.setState({
+                    course: course,
+                    name: course.name,
+                    code: course.code,
+                    scope: course.scope,
+                    timing: course.timing,
+                    language: course.language,
+                    level: course.level,
+                    type: course.type,
+                    schedule: course.schedule,
+                    weeksId: course.weeksId
+                })
+
+
+            }).then(() => {
+                this.setState({
+                    ready: true,
+                })
             })
-        })
+        }
+
 
     }
 
     render() {
 
-        if(this.state.ready){
-            return(
+        if (this.state.ready) {
+            return (
                 <div className="container">
                     <div className="row">
                         <div className="col">
@@ -53,7 +84,7 @@ class Course extends Component {
                         <div className="col">
                             {
                                 this.state.weeksId.map(weekId => {
-                                    return <Week id={weekId}/>
+                                    return <Week id={weekId} course={this.state.course}/>
                                 })
                             }
                         </div>
@@ -61,7 +92,7 @@ class Course extends Component {
 
                 </div>
             )
-        }else{
+        } else {
             return (
                 <div>
                     <h1>Course </h1>

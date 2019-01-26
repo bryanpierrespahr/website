@@ -5,104 +5,62 @@ import {Redirect} from 'react-router-dom';
 import TimeRange from 'react-time-range';
 import moment from 'moment';
 import API from "../utils/api";
+import {MdAdd} from 'react-icons/md';
+import {Link} from 'react-router-dom';
 
 //Component class to add a new quiz
 class AddQuiz extends Component {
-
-    //Add the quiz via the API with a POST request
-    addQUiz = (event) => {
-
-        //Prevent the default action
-        event.preventDefault();
-
-        const quiz = {
-            no: this.state.no,
-            weekNo: this.state.weekNo,
-            title: this.state.title,
-            questions: this.state.questions,
-            type: this.state.type
-        }
-
-        API.postQuiz(quiz).then(function (data) {
-            console.log(data.data);
-        })
-
-
-    }
-
-    //Alert the user if there is any input errors
-    handleErrorSubmit = (e, formData, errorInputs) => {
-        console.error(errorInputs);
-        NotificationManager.error("Error with the values entered, please try again");
-    }
-
-    //Handle the change on input fields
-    inputChanged = (event) => {
-
-        console.log(event.target.name)
-        console.log(event.target.value)
-
-        //Set the new value to the appropriate state
-        this.setState({[event.target.name]: event.target.value})
-
-    }
-
-    //Method called immediately after the component is mounted,
-
-    //Constructor
     constructor(props) {
         super(props);
         this.state = {
-            no: 0,
-            weekNo: 0,
-            title: '',
-            questions: [],
-            incorrectAnswers: [],
-            correctAnswer:'',
-            type: 'quiz',
-            redirect: false
+            ready: false,
         }
     }
 
-    //Used to get data from the API via HTTP GET Request
     componentDidMount() {
+
+        this.setState({
+            course: this.props.course,
+            weekId: this.props.weekId,
+            weekNo: this.props.weekNo,
+            no: this.props.no,
+        }, () => {
+            this.setState({
+                ready: true
+            })
+        })
 
     }
 
-    //Render method
+
     render() {
 
-        //Check if redirect state is true
-        if (this.state.redirect) {
-            //Redirect to the customers page
-            return (<Redirect to='/courses'/>);
-        } else {
-
+        if (this.state.ready) {
             return (
-                //Return the form
-                <ValidationForm onSubmit={this.addLink} onErrorSubmit={this.handleErrorSubmit}>
-                    <div className="form-group row">
-                        <label for="title" className="col-4 col-form-label">Title</label>
-                        <div className="col-8">
-                            <input id="title" name="title" placeholder="Enter a title" type="text"
-                                   className="form-control here" required="required"
-                                   value={this.state.title} onChange={this.inputChanged}/>
+                <div className="container">
+                    <div className="row">
+                        <div className="col">
+                            <div className="text-left weekContent">
+                                <MdAdd></MdAdd>
+                                <Link to=
+                                          {{
+                                              pathname: "/" + this.props.type + "/add",
+                                              courseId: this.state.course._id,
+                                              weekId: this.state.weekId,
+                                              weekNo: this.state.weekNo,
+                                              no: this.state.no,
+                                          }}
+                                >
+                                    Add a {this.props.type}
+                                </Link>
+                            </div>
                         </div>
                     </div>
-                    <div className="form-group row">
-                        <label for="link" className="col-4 col-form-label">URL</label>
-                        <div className="col-8">
-                            <input id="link" name="link" placeholder="Enter the URL" type="text"
-                                   className="form-control here"
-                                   value={this.state.link} onChange={this.inputChanged}/>
-                        </div>
-                    </div>
-                    <div className="form-group row">
-                        <div className="offset-4 col-8">
-                            <button name="submit" type="submit" className="btn btn-primary">Submit</button>
-                        </div>
-                    </div>
-                </ValidationForm>
+                </div>
+            )
+        } else {
+            return (
+                <div></div>
             )
         }
     }
