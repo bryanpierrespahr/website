@@ -196,6 +196,12 @@ export default {
         }])
     },
 
+    patchLectureWeek: function(weekId, lectures){
+        return axios.patch(burl + "/week/" + weekId, [{
+            "propName": "lecturesId", "value": lectures
+        }])
+    },
+
     postCourse: function (course) {
         return axios.post(burl + '/course', course, {headers: headers})
     },

@@ -4,7 +4,7 @@ import LectureLink from './LectureLink';
 import LinkLink from './LinkLink';
 import QuizLink from './QuizLink';
 import AddQuiz from "./AddQuiz";
-import AddLink from "./AddQuiz";
+import AddLink from "./AddLink";
 import AddLecture from "./AddLecture";
 
 class Week extends Component {
@@ -17,6 +17,8 @@ class Week extends Component {
     }
 
     componentDidMount() {
+
+        console.log("COMPONENT : Week");
 
         API.getWeek(this.props.id)
             .then(data => {

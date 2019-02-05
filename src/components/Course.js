@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import API from '../utils/api.js';
 import Week from './Week';
+import {Link} from 'react-router-dom';
 
 class Course extends Component {
 
@@ -13,6 +14,8 @@ class Course extends Component {
     }
 
     componentDidMount() {
+
+        console.log("COMPONENT : Course");
 
         if (this.props.location.courseId != null) {
 
@@ -87,6 +90,17 @@ class Course extends Component {
                                     return <Week id={weekId} course={this.state.course}/>
                                 })
                             }
+                        </div>
+                        <div>
+                            <Link to=
+                                      {{
+                                          pathname: "/" + this.state.course._id + "/students",
+                                          courseId: this.state.course._id,
+                                          course: this.state.course
+                                      }}
+                            >
+                                Participants
+                            </Link>
                         </div>
                     </div>
 

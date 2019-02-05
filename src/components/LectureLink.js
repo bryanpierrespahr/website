@@ -13,6 +13,8 @@ class LectureLink extends Component {
 
     componentDidMount() {
 
+        console.log("COMPONENT : LectureLink");
+
         API.getLecture(this.props.id)
             .then(data => {
                 var lecture = data.data;

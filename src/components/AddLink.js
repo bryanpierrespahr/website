@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
-import {SelectGroup, TextInput, ValidationForm} from "react-bootstrap4-form-validation";
-import {NotificationManager, NotificationContainer} from "react-notifications";
-import {Redirect} from 'react-router-dom';
-import TimeRange from 'react-time-range';
-import moment from 'moment';
-import API from "../utils/api";
+import {MdAdd} from 'react-icons/md';
+import {Link} from 'react-router-dom';
 
 //Component class to add a new link
 class AddLink extends Component {
@@ -17,25 +13,50 @@ class AddLink extends Component {
 
     componentDidMount() {
 
+        this.setState({
+            course: this.props.course,
+            weekId: this.props.weekId,
+            weekNo: this.props.weekNo,
+            no: this.props.no,
+        }, () => {
+            this.setState({
+                ready: true
+            })
+        })
 
     }
 
 
     render() {
-        return (
-            <div className="container">
-                <div className="row">
-                    <div className="col">
-                        <div className="text-left weekContent">
-                            <MdAdd></MdAdd>
-                            <Link to={"/" + this.props.type + "/add"}>
-                                Add a {this.props.type}
-                            </Link>
+
+        if (this.state.ready) {
+            return (
+                <div className="container">
+                    <div className="row">
+                        <div className="col">
+                            <div className="text-left weekContent">
+                                <MdAdd></MdAdd>
+                                <Link to=
+                                          {{
+                                              pathname: "/" + this.props.type + "/add",
+                                              courseId: this.state.course._id,
+                                              weekId: this.state.weekId,
+                                              weekNo: this.state.weekNo,
+                                              no: this.state.no,
+                                          }}
+                                >
+                                    Add a {this.props.type}
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        )
+            )
+        } else {
+            return (
+                <div></div>
+            )
+        }
     }
 
 }

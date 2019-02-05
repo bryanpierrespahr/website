@@ -1,10 +1,4 @@
 import React, {Component} from 'react';
-import {SelectGroup, TextInput, ValidationForm} from "react-bootstrap4-form-validation";
-import {NotificationManager, NotificationContainer} from "react-notifications";
-import {Redirect} from 'react-router-dom';
-import TimeRange from 'react-time-range';
-import moment from 'moment';
-import API from "../utils/api";
 import {MdAdd} from 'react-icons/md';
 import {Link} from 'react-router-dom';
 

@@ -6,6 +6,7 @@ import {Login} from './components/Login.js';
 import {SignUp} from './components/SignUp.js';
 import Courses from './components/Courses.js';
 import Course from './components/Course';
+import CourseStudents from './components/CourseStudents';
 import Students from './components/Students.js';
 import Teachers from './components/Teachers.js';
 import NavigationBar from './components/NavigationBar';
@@ -20,6 +21,7 @@ import CreateQuiz from './components/CreateQuiz.js';
 import CreateLink from './components/CreateLink.js';
 import {PrivateRoute} from './components/PrivateRoute.js';
 import './App.css';
+import CreateLecture from "./components/CreateLecture";
 
 class App extends Component {
     render() {
@@ -42,9 +44,11 @@ class App extends Component {
                             <PrivateRoute path='/teachers' component={Teachers}/>
                             <PrivateRoute path="/teacher/add" component={AddTeacher}/>
                             <PrivateRoute path="/teacher/edit" component={EditTeacher}/>
-                            <PrivateRoute path="/course/:courseName" component={Course}/>
+                            <PrivateRoute path="/course/:courseId" component={Course}/>
                             <PrivateRoute path="/quiz/add" component={CreateQuiz}/>
                             <PrivateRoute path="/link/add" component={CreateLink}/>
+                            <PrivateRoute path="/lecture/add" component={CreateLecture}/>
+                            <PrivateRoute path="/:courseId/students" component={CourseStudents}/>
                         </Switch>
                         <Footer/>
                     </div>
