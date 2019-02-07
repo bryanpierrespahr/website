@@ -46,7 +46,6 @@ table > tr {
     max-width: 600px;
     margin: auto;
     margin-top: 100px;
-
 }
 
 .move-left {
@@ -75,26 +74,38 @@ table > tr {
     text-align: left;
     border: none;
     width: 100%;
-
 }
 
 .leaderboard {
     margin-bottom: 2%
 }
 
-.fw600{
+.fw600 {
     font-weight: 600;
 }
 
-.red{
+.red {
     color: darkred;
 }
 
-.green{
-    color:darkgreen;
+.green {
+    color: darkgreen;
 }
 
-.noPadding{
+.noPadding {
     padding-right: 0px;
     padding-left: 0px;
+}
+
+.paddingTop10px {
+    padding-top: 10px;
+}
+
+.quizTitle {
+    padding-bottom: 2%;
+}
+
+.questionAnswer {
+    padding-left: 5px;
+    vertical-align: center;
 }
