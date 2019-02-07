@@ -5,7 +5,7 @@ import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 import API from '../utils/api.js';
 
-class CourseStudents extends Component {
+class Participants extends Component {
 
     //Method that returns a custom "edit" button
     detailsButton = (cell) => {
@@ -14,9 +14,9 @@ class CourseStudents extends Component {
 
             <Link className="btn btn-warning" to=
                 {{
-                    pathname: "/student/"+cell,
+                    pathname: "/student/" + cell,
                     studentId: cell,
-                    courseId: this.state.courseId
+                    courseId: this.state.courseId,
                 }}
             >
                 Details
@@ -184,77 +184,82 @@ class CourseStudents extends Component {
                     </div>
                     <div className="row">
                         <div className="col-10 mx-auto">
-                            <h3 className="titleMarginTop text-left">Leaderboard</h3>
+                            <h4 className="leaderboard text-left">Leaderboard</h4>
 
                         </div>
                     </div>
-                    <div className="row">
-                        <table className="tablee">
-                            <tr>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                            <tr>
-                                <td className="tablerow">Best student :</td>
-                                <td
-                                    className="tablerow"> {this.state.bestStudent.firstName} {this.state.bestStudent.lastName} </td>
-                                <td className="tablerow"></td>
-                                <td className="tablerow">Average score : </td>
-                                <td className="tablerow"> {this.state.bestStudent.courses.globalScore} </td>
-                            </tr>
-                            <tr>
-                                <td className="tablerow">Most advanced student :</td>
-                                <td
-                                    className="tablerow"> {this.state.bestStudent.firstName} {this.state.bestStudent.lastName} </td>
-                                <td className="tablerow"></td>
-                                <td className="tablerow">% Done : </td>
-                                <td className="tablerow"> {this.state.bestStudent.courses.percentage} </td>
-                            </tr>
-                            <tr>
-                                <td className="tablerow">Most invested student :</td>
-                                <td
-                                    className="tablerow"> {this.state.bestStudent.firstName} {this.state.bestStudent.lastName} </td>
-                                <td className="tablerow"></td>
-                                <td className="tablerow">Time spent : </td>
-                                <td className="tablerow"> {this.state.bestStudent.courses.timeSpent} </td>
-                            </tr>
-                        </table>
-                        <table className="tablee">
-                            <tr>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                            <tr>
-                                <td className="tablerow">Lowest student :</td>
-                                <td
-                                    className="tablerow"> {this.state.lowestStudent.firstName} {this.state.lowestStudent.lastName} </td>
-                                <td className="tablerow"></td>
-                                <td className="tablerow">Average score : </td>
-                                <td className="tablerow"> {this.state.lowestStudent.courses.globalScore} </td>
-                            </tr>
-                            <tr>
-                                <td className="tablerow">Less advanced student :</td>
-                                <td
-                                    className="tablerow"> {this.state.lowestStudent.firstName} {this.state.lowestStudent.lastName} </td>
-                                <td className="tablerow"></td>
-                                <td className="tablerow">% Done : </td>
-                                <td className="tablerow"> {this.state.lowestStudent.courses.percentage} </td>
-                            </tr>
-                            <tr>
-                                <td className="tablerow">Less invested student :</td>
-                                <td
-                                    className="tablerow"> {this.state.lowestStudent.firstName} {this.state.lowestStudent.lastName} </td>
-                                <td className="tablerow"></td>
-                                <td className="tablerow">Time spent : </td>
-                                <td className="tablerow"> {this.state.lowestStudent.courses.timeSpent} </td>
-                            </tr>
-                        </table>
+                    <div className="row col-10 mx-auto">
+                        <div className="col-6">
+                            <table className="customTable">
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <td className="tablerow fw600 green">Best student :</td>
+                                    <td
+                                        className="tablerow"> {this.state.bestStudent.firstName} {this.state.bestStudent.lastName} </td>
+                                    <td className="tablerow"></td>
+                                    <td className="tablerow fw600 green">Average score :</td>
+                                    <td className="tablerow"> {this.state.bestStudent.courses.globalScore} </td>
+                                </tr>
+                                <tr>
+                                    <td className="tablerow fw600 green">Most advanced student :</td>
+                                    <td
+                                        className="tablerow"> {this.state.bestStudent.firstName} {this.state.bestStudent.lastName} </td>
+                                    <td className="tablerow"></td>
+                                    <td className="tablerow fw600 green">% Done :</td>
+                                    <td className="tablerow"> {this.state.bestStudent.courses.percentage} </td>
+                                </tr>
+                                <tr>
+                                    <td className="tablerow fw600 green">Most invested student :</td>
+                                    <td
+                                        className="tablerow"> {this.state.bestStudent.firstName} {this.state.bestStudent.lastName} </td>
+                                    <td className="tablerow"></td>
+                                    <td className="tablerow fw600 green">Time spent :</td>
+                                    <td className="tablerow"> {this.state.bestStudent.courses.timeSpent} </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div className="col-6">
+                            <table className="customTable">
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <td className="tablerow fw600 red">Lowest student :</td>
+                                    <td
+                                        className="tablerow"> {this.state.lowestStudent.firstName} {this.state.lowestStudent.lastName} </td>
+                                    <td className="tablerow"></td>
+                                    <td className="tablerow fw600 red">Average score :</td>
+                                    <td className="tablerow"> {this.state.lowestStudent.courses.globalScore} </td>
+                                </tr>
+                                <tr>
+                                    <td className="tablerow fw600 red">Less advanced student :</td>
+                                    <td
+                                        className="tablerow"> {this.state.lowestStudent.firstName} {this.state.lowestStudent.lastName} </td>
+                                    <td className="tablerow"></td>
+                                    <td className="tablerow fw600 red">% Done :</td>
+                                    <td className="tablerow"> {this.state.lowestStudent.courses.percentage} </td>
+                                </tr>
+                                <tr>
+                                    <td className="tablerow fw600 red">Less invested student :</td>
+                                    <td
+                                        className="tablerow"> {this.state.lowestStudent.firstName} {this.state.lowestStudent.lastName} </td>
+                                    <td className="tablerow"></td>
+                                    <td className="tablerow fw600 red">Time spent :</td>
+                                    <td className="tablerow"> {this.state.lowestStudent.courses.timeSpent} </td>
+                                </tr>
+                            </table>
+                        </div>
+
                     </div>
                 </div>
 
@@ -269,4 +274,4 @@ class CourseStudents extends Component {
     }
 }
 
-export default CourseStudents;
+export default Participants;

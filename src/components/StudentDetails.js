@@ -1,39 +1,8 @@
 import React, {Component} from 'react';
-import {NotificationManager, NotificationContainer} from "react-notifications";
-import {SelectGroup, TextInput, ValidationForm} from "react-bootstrap4-form-validation";
-import validator from 'validator';
-import TimeRange from 'react-time-range';
-import {Redirect} from 'react-router-dom';
+import Result from "../components/Result"
 import API from "../utils/api";
 
 class StudentDetails extends Component {
-
-    // //Save the modifications and update the courses info with the API via a POST request
-    // saveModification = (e) => {
-    //
-    //     e.preventDefault();
-    //
-    //     var student = {
-    //         number: this.state.number,
-    //         firstName: this.state.firstName,
-    //         lastName: this.state.lastName,
-    //         email: this.state.email,
-    //         password: this.state.password
-    //
-    //     }
-    //
-    //     API.patchStudent(this.props.location.param1, student) .then(() => {
-    //         window.location = "/students"
-    //     })
-    //
-    // }
-
-    // //Called when the "Cancel" button is pressed, redirect to the previous /courses URL
-    // backToStudents = () => {
-    //
-    //     this.props.history.push('/students');
-    //
-    // }
 
 
     //Constructor
@@ -47,17 +16,38 @@ class StudentDetails extends Component {
     //Used to get data from the API via HTTP GET Request
     componentDidMount() {
 
-        API.getStudent(this.props.location.studentId)
+        //TODO: change
+        //this.props.location.courseId
+        this.setState({
+            courseId: "5bebee74e4e0e774e4eb6982"
+        })
+
+        var student;
+
+        //TODO: change
+        //this.props.location.studentId
+        API.getStudent("5bebf038a58c013f583b38c1")
             .then((data) => {
+                student = data.data;
 
-                var student = data.data;
+                for (var z = 0; z < student.courses.length; z++) {
+                    if (student.courses[z].courseId == this.state.courseId) {
+                        var moment = require("moment");
 
-                this.setState({
-                    student: student
-                })
+                        const seconds = student.courses[z].timeSpent;
+                        const time = moment.utc(seconds * 1000).format('HH:mm:ss');
+
+                        var c = student.courses[z];
+                        student.courses = c;
+                        student.courses.timeSpent = time;
+                        console.log("Student : " + student)
+                        break;
+                    }
+                }
             })
             .then(() => {
                 this.setState({
+                    student: student,
                     ready: true
                 })
             })
@@ -76,50 +66,108 @@ class StudentDetails extends Component {
         } else {
             return (
 
-                <div>
-                    <div className="col-md-6 mx-auto">
-                        <div className="form-row">
-                            <div className="form-group col-md-6 mx-auto">
-                                <label htmlFor="firstName" className="float-left">First name</label>
-                                <TextInput name="firstName" id="firstName"
-                                           value={this.state.student.firstName}
-                                />
-                            </div>
-                            <div className="form-group col-md-6 mx-auto">
-                                <label htmlFor="lastName" className="float-left">Last name</label>
-                                <p name="firstName" id="firstName"
-                                   value={this.state.student.lastName}
-                                />
-                            </div>
-                        </div>
-                        <div className="form-row">
-                            <div className="form-group col-md-5 mx-auto">
-                                <label htmlFor="number" className="float-left">Number</label>
-                                <p name="firstName" id="firstName"
-                                   value={this.state.student.number}
-                                />
-                            </div>
-                            <div className="form-group col-md-7 mx-auto">
-                                <label htmlFor="email" className="float-left">Email</label>
-                                <div name="firstName" id="firstName"
-                                   value={this.state.student.email}
-                                />
-                            </div>
-
-                        </div>
-                        <div className="col-md-10 mx-auto">
-                            <button onClick={this.backToStudents} className="btn btn-danger" style={{
-                                margin: '1%'
-                            }}>Cancel
-                            </button>
-                            <button type="submit" className="btn btn-success" style={{
-                                margin: '1%'
-                            }}>Save
-                            </button>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <img alt="Bootstrap Image Preview"
+                                 src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg"/>
                         </div>
                     </div>
-                    <NotificationContainer/>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3>
+                                {this.state.student.firstName} {this.state.student.lastName}
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3>
+                                {this.state.student.email}
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3>
+                                {this.state.student.number}
+                            </h3>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 className="text-left">
+                                Overview
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3>
+                                Global score
+                            </h3>
+                        </div>
+                        <div class="col-md-6">
+                            <h3>
+                                {this.state.student.courses.globalScore}
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3>
+                                % Done
+                            </h3>
+                        </div>
+                        <div class="col-md-6">
+                            <h3>
+                                {this.state.student.courses.percentage} %
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3>
+                                Time spent
+                            </h3>
+                        </div>
+                        <div class="col-md-6">
+                            <h3>
+                                {this.state.student.courses.timeSpent}
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 className="text-left">
+                                Results
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            {
+                                this.state.student.courses.globalResults.map(result => {
+                                    return <Result id={result._id} title={result.title} score={result.score} />
+                                })
+                            }
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3>
+                                Average
+                            </h3>
+                        </div>
+                        <div class="col-md-6">
+                            <h3>
+                                {this.state.student.courses.globalScore}
+                            </h3>
+                        </div>
+                    </div>
                 </div>
+
             )
         }
     }

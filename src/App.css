@@ -41,10 +41,6 @@ table > tr {
     border-bottom: 1px solid gray;
 }
 
-td, tr {
-    padding: 0 20px 0 20px;
-}
-
 .Login {
     width: 100%;
     max-width: 600px;
@@ -53,29 +49,52 @@ td, tr {
 
 }
 
-.move-left{
-    text-align:left;
+.move-left {
+    text-align: left;
 }
 
-.weekContent{
+.weekContent {
     padding-top: 4px;
 }
 
-.marginLeft5px{
+.marginLeft5px {
     margin-left: 5px;
 }
 
-.weekTitle{
+.weekTitle {
     margin-top: 6px;
 }
 
-.tableRow{
+.tablerow {
     text-align: left;
-    padding: 0 20px 0 20px;
     border: none;
+    padding: 0 6px 0 8px;
 }
 
-.tablee{
+.customTable {
     text-align: left;
     border: none;
+    width: 100%;
+
+}
+
+.leaderboard {
+    margin-bottom: 2%
+}
+
+.fw600{
+    font-weight: 600;
+}
+
+.red{
+    color: darkred;
+}
+
+.green{
+    color:darkgreen;
+}
+
+.noPadding{
+    padding-right: 0px;
+    padding-left: 0px;
 }

@@ -6,7 +6,7 @@ import {Login} from './components/Login.js';
 import {SignUp} from './components/SignUp.js';
 import Courses from './components/Courses.js';
 import Course from './components/Course';
-import CourseStudents from './components/CourseStudents';
+import Participants from './components/Participants';
 import Students from './components/Students.js';
 import Teachers from './components/Teachers.js';
 import NavigationBar from './components/NavigationBar';
@@ -50,7 +50,7 @@ class App extends Component {
                             <PrivateRoute path="/quiz/add" component={CreateQuiz}/>
                             <PrivateRoute path="/link/add" component={CreateLink}/>
                             <PrivateRoute path="/lecture/add" component={CreateLecture}/>
-                            <PrivateRoute path="/:courseId/students" component={CourseStudents}/>
+                            <PrivateRoute path="/:courseId/students" component={Participants}/>
                             <PrivateRoute path="/student/:studentId" component={StudentDetails}/>
                         </Switch>
                         <Footer/>
