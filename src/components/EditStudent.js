@@ -108,7 +108,7 @@ class EditStudent extends Component {
                             </div>
                             <div className="form-group col-md-6 mx-auto">
                                 <label htmlFor="lastName" className="float-left">Last name</label>
-                                <TextInput className="form-control" id="code" placeholder="Enter student last name"
+                                <TextInput className="form-control" id="lastName" placeholder="Enter student last name"
                                            name="lastName" value={this.state.lastName} onChange={this.inputChanged}
                                            required/>
                             </div>

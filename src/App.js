@@ -19,9 +19,11 @@ import AddTeacher from './components/AddTeacher';
 import EditTeacher from './components/EditTeacher';
 import CreateQuiz from './components/CreateQuiz.js';
 import CreateLink from './components/CreateLink.js';
+import CreateLecture from "./components/CreateLecture";
+import StudentDetails from "./components/StudentDetails";
 import {PrivateRoute} from './components/PrivateRoute.js';
 import './App.css';
-import CreateLecture from "./components/CreateLecture";
+
 
 class App extends Component {
     render() {
@@ -49,6 +51,7 @@ class App extends Component {
                             <PrivateRoute path="/link/add" component={CreateLink}/>
                             <PrivateRoute path="/lecture/add" component={CreateLecture}/>
                             <PrivateRoute path="/:courseId/students" component={CourseStudents}/>
+                            <PrivateRoute path="/student/:studentId" component={StudentDetails}/>
                         </Switch>
                         <Footer/>
                     </div>

@@ -155,6 +155,15 @@ export default {
             })
     },
 
+    patchCourseWeek: function (courseId, weeksId) {
+        return axios.patch(burl + "/course/" + courseId, [{
+                "propName": "weeksId", "value": weeksId
+            }]
+            , {
+                headers: headers
+            })
+    },
+
 
     patchStudent: function (studentId, student) {
         return axios.patch(burl + "/student/" + studentId, [{
@@ -224,6 +233,10 @@ export default {
 
     postQuiz: function (quiz) {
         return axios.post(burl + '/quiz', quiz, {headers: headers})
+    },
+
+    postWeek: function (week){
+        return axios.post(burl+ '/week', week, {headers: headers})
     },
 
     deleteCourse: function (courseId) {

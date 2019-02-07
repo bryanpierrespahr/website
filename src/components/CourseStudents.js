@@ -14,8 +14,9 @@ class CourseStudents extends Component {
 
             <Link className="btn btn-warning" to=
                 {{
-                    pathname: "/student/details",
-                    param1: cell
+                    pathname: "/student/"+cell,
+                    studentId: cell,
+                    courseId: this.state.courseId
                 }}
             >
                 Details

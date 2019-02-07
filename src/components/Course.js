@@ -1,10 +1,74 @@
-import React, {Component} from 'react';
+import React, {Component, Button} from 'react';
 import API from '../utils/api.js';
 import Week from './Week';
 import {Link} from 'react-router-dom';
 
 class Course extends Component {
 
+
+    addWeek = () => {
+
+        var newWeekId;
+        var week = {
+            "no": this.state.weeksId.length + 1,
+            "lecturesId": [],
+            "linksId": [],
+            "quizzesId": [],
+        }
+
+        console.log(week);
+
+        API.postWeek(week)
+            .then((data) => {
+                var newWeek = data.data.week;
+                newWeekId = newWeek._id;
+            })
+            .then(() => {
+
+                this.state.weeksId.push(newWeekId);
+
+                API.patchCourseWeek(this.state.courseId, this.state.weeksId)
+                    .then((data) => {
+                        console.log(data.data);
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                    })
+            })
+            .then(() => {
+                this.refreshCourse(this.state.courseId);
+            })
+            .catch((error) => {
+                console.error(error)
+            })
+    }
+    refreshCourse = (courseId) => {
+
+        API.getCourse(courseId).then((data) => {
+
+            var course = data.data;
+
+            this.setState({
+                courseId: this.props.location.courseId,
+                course: course,
+                name: course.name,
+                code: course.code,
+                scope: course.scope,
+                timing: course.timing,
+                language: course.language,
+                level: course.level,
+                type: course.type,
+                schedule: course.schedule,
+                weeksId: course.weeksId
+            })
+
+        })
+
+        this.setState({
+            ready: true
+        })
+
+    }
 
     constructor(props) {
         super(props);
@@ -15,8 +79,6 @@ class Course extends Component {
 
     componentDidMount() {
 
-        console.log("COMPONENT : Course");
-
         if (this.props.location.courseId != null) {
 
             API.getCourse(this.props.location.courseId).then((data) => {
@@ -24,6 +86,7 @@ class Course extends Component {
                 var course = data.data;
 
                 this.setState({
+                    courseId: this.props.location.courseId,
                     course: course,
                     name: course.name,
                     code: course.code,
@@ -103,8 +166,11 @@ class Course extends Component {
                             </Link>
                         </div>
                     </div>
-
+                    <div className="row">
+                        <button onClick={this.addWeek}>Add a week</button>
+                    </div>
                 </div>
+
             )
         } else {
             return (
