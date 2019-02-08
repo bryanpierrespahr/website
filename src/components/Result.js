@@ -2,26 +2,46 @@ import React, {Component} from 'react';
 
 class Result extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
+        this.state = {ready: false}
     }
 
-    componentDidMount(){
+    componentDidMount() {
+
+        this.setState({
+            result: this.props.result,
+            studentId: this.props.studentId,
+            ready: true,
+        })
 
     }
 
-    render(){
-        return(
-            <div className="row">
-                <div className="col-md-6" >
-                    <a href={`/quiz/${this.props.id}`}>{this.props.title}</a>
-                </div>
-                <div className="col-md-6">
-                    <h5>{this.props.score}</h5>
+    render() {
+
+        if (this.state.ready) {
+
+            const result = this.state.result;
+            const studentId = this.state.studentId;
+            return (
+
+                <div className="row">
+                    <div className="col-md-6">
+                        <a href={`/quiz/${result.quizId}/student/${studentId}`}>{result.title}</a>
+                    </div>
+                    <div className="col-md-6">
+                        <h5>{result.score}</h5>
+                    </div>
+
                 </div>
 
-            </div>
-        )
+            )
+        } else {
+            return (
+                <div></div>
+            )
+        }
+
     }
 
 }

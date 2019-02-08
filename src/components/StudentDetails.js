@@ -16,17 +16,13 @@ class StudentDetails extends Component {
     //Used to get data from the API via HTTP GET Request
     componentDidMount() {
 
-        //TODO: change
-        //this.props.location.courseId
         this.setState({
-            courseId: "5bebee74e4e0e774e4eb6982"
+            courseId: this.props.location.courseId
         })
 
         var student;
 
-        //TODO: change
-        //this.props.location.studentId
-        API.getStudent("5bebf038a58c013f583b38c1")
+        API.getStudent(this.props.location.studentId)
             .then((data) => {
                 student = data.data;
 
@@ -149,7 +145,7 @@ class StudentDetails extends Component {
                         <div class="col-md-12">
                             {
                                 this.state.student.courses.globalResults.map(result => {
-                                    return <Result id={result._id} title={result.title} score={result.score} />
+                                    return <Result result={result} studentId={this.state.student._id}/>
                                 })
                             }
                         </div>

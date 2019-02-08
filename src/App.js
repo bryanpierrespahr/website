@@ -22,6 +22,7 @@ import CreateLink from './components/CreateLink.js';
 import CreateLecture from "./components/CreateLecture";
 import StudentDetails from "./components/StudentDetails";
 import Quiz from './components/Quiz';
+import QuizResult from './components/QuizResult';
 import {PrivateRoute} from './components/PrivateRoute.js';
 import './App.css';
 
@@ -52,6 +53,7 @@ class App extends Component {
                             <PrivateRoute path="/link/add" component={CreateLink}/>
                             <PrivateRoute path="/lecture/add" component={CreateLecture}/>
                             <PrivateRoute path="/:courseId/students" component={Participants}/>
+                            <PrivateRoute path="/quiz/:quizId/student/:studentId" component={QuizResult}/>
                             <PrivateRoute path="/student/:studentId" component={StudentDetails}/>
                             <PrivateRoute path="/quiz/:quizId" component={Quiz}/>
                         </Switch>
