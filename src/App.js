@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 import AddCourse from './components/AddCourse';
 import EditCourse from './components/EditCourse';
 import AddStudent from './components/AddStudent';
+import AddStudentCourse from './components/AddStudentCourse';
 import EditStudent from './components/EditStudent';
 import AddTeacher from './components/AddTeacher';
 import EditTeacher from './components/EditTeacher';
@@ -52,7 +53,8 @@ class App extends Component {
                             <PrivateRoute path="/quiz/add" component={CreateQuiz}/>
                             <PrivateRoute path="/link/add" component={CreateLink}/>
                             <PrivateRoute path="/lecture/add" component={CreateLecture}/>
-                            <PrivateRoute path="/:courseId/students" component={Participants}/>
+                            <PrivateRoute path="/:courseId/students/add" component={AddStudentCourse}/>
+                            <PrivateRoute exact path="/:courseId/students" component={Participants}/>
                             <PrivateRoute path="/quiz/:quizId/student/:studentId" component={QuizResult}/>
                             <PrivateRoute path="/student/:studentId" component={StudentDetails}/>
                             <PrivateRoute path="/quiz/:quizId" component={Quiz}/>

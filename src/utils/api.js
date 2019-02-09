@@ -155,6 +155,15 @@ export default {
             })
     },
 
+    patchCourseStudents: function (courseId, students) {
+        return axios.patch(burl + "/course/" + courseId, [{
+                "propName": "students", "value": students
+            }]
+            , {
+                headers: headers
+            })
+    },
+
     patchCourseWeek: function (courseId, weeksId) {
         return axios.patch(burl + "/course/" + courseId, [{
                 "propName": "weeksId", "value": weeksId
@@ -180,6 +189,15 @@ export default {
             })
     },
 
+    patchStudentCourses: function (studentId, courses) {
+        return axios.patch(burl + "/student/" + studentId, [{
+                "propName": "courses", "value": courses
+            }]
+            , {
+                headers: headers
+            })
+    },
+
     patchTeacher: function (teacherId, teacher) {
         return axios.patch(burl + "/teacher/" + teacherId, [{
                 "propName": "firstName", "value": teacher.firstName
@@ -193,19 +211,19 @@ export default {
             })
     },
 
-    patchQuizWeek: function(weekId, quizzes){
+    patchQuizWeek: function (weekId, quizzes) {
         return axios.patch(burl + "/week/" + weekId, [{
             "propName": "quizzesId", "value": quizzes
         }])
     },
 
-    patchLinkWeek: function(weekId, links){
+    patchLinkWeek: function (weekId, links) {
         return axios.patch(burl + "/week/" + weekId, [{
             "propName": "linksId", "value": links
         }])
     },
 
-    patchLectureWeek: function(weekId, lectures){
+    patchLectureWeek: function (weekId, lectures) {
         return axios.patch(burl + "/week/" + weekId, [{
             "propName": "lecturesId", "value": lectures
         }])
@@ -235,8 +253,8 @@ export default {
         return axios.post(burl + '/quiz', quiz, {headers: headers})
     },
 
-    postWeek: function (week){
-        return axios.post(burl+ '/week', week, {headers: headers})
+    postWeek: function (week) {
+        return axios.post(burl + '/week', week, {headers: headers})
     },
 
     deleteCourse: function (courseId) {

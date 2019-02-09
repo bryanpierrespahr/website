@@ -24,10 +24,9 @@ class Participants extends Component {
 
         );
     }
+
     getStudentsInfo = () => {
 
-        console.log("GETTING STUDENT INFO")
-        console.log(this.state.courseStudents)
 
         var student;
         var students = [];
@@ -35,28 +34,52 @@ class Participants extends Component {
         for (var i = 0; i < this.state.courseStudents.length; i++) {
 
             API.getStudent(this.state.courseStudents[i])
-                .then(data => {
+                .then((data) => {
 
                     student = data.data;
 
                     for (var z = 0; z < student.courses.length; z++) {
 
-
                         if (student.courses[z].courseId == this.state.courseId) {
 
-                            if (student.courses[z].globalScore > this.state.bestScore)
-                                this.state.bestStudent = student;
-                            if (student.courses[z].timeSpent > this.state.mostTime)
-                                this.state.mostTimeStudent = student;
-                            if (student.courses[z].percentage > this.state.mostAdvanced)
-                                this.state.mostAdvancedStudent = student;
+                            var currentStudent = student.courses[z];
 
-                            if (student.courses[z].globalScore < this.state.lowestScore)
-                                this.state.lowestStudent = student;
-                            if (student.courses[z].timeSpent < this.state.lessTime)
-                                this.state.lowestStudent = student;
-                            if (student.courses[z].percentage < this.state.lessAdvanced)
-                                this.state.lowestStudent = student;
+                            if (currentStudent.globalScore > this.state.bestScore)
+                                this.setState({
+                                    bestStudent: student,
+                                    bestScore: currentStudent.globalScore
+                                })
+
+
+                            if (currentStudent.timeSpent > this.state.mostTime)
+                                this.setState({
+                                    mostTimeStudent: student,
+                                    mostTime: currentStudent.timeSpent
+                                })
+
+                            if (currentStudent.percentage > this.state.mostAdvanced)
+                                this.setState({
+                                    mostAdvancedStudent: student,
+                                    mostAdvanced: currentStudent.percentage
+                                })
+
+                            if (currentStudent.globalScore < this.state.lowestScore)
+                                this.setState({
+                                    lowestStudent: student,
+                                    lowestScore: currentStudent.globalScore
+                                })
+
+                            if (currentStudent.timeSpent < this.state.lessTime)
+                                this.setState({
+                                    lessTimeStudent: student,
+                                    lessTime: currentStudent.timSpent
+                                })
+
+                            if (currentStudent.percentage < this.state.lessAdvanced)
+                                this.setState({
+                                    lessAdvancedStudent: student,
+                                    lessAdvanced: currentStudent.percentage
+                                })
 
                             var moment = require("moment");
 
@@ -66,29 +89,28 @@ class Participants extends Component {
                             var c = student.courses[z];
                             student.courses = c;
                             student.courses.timeSpent = time;
-                            console.log("Student : " + student)
                             break;
 
-                        } else {
-                            console.log("pas egal")
                         }
                     }
 
                 })
                 .then(() => {
 
-                    console.log("Student : " + student)
                     students.push(student);
 
-                    this
-                        .setState({
-                            students: students,
+                    this.setState({
+                        students: students,
+                    }, () => {
+                        this.setState({
                             ready: true,
-                        }, () => console.log("Students : " + JSON.stringify(this.state.students[0])))
+                        })
+                    })
 
-                }).catch((error) => {
-                console.error(error);
-            })
+                })
+                .catch((error) => {
+                    console.error(error);
+                })
 
         }
 
@@ -97,19 +119,27 @@ class Participants extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            students: [],
             ready: false,
-            bestScore: 0,
+            bestScore: -1,
             lowestScore: 101,
-            mostTime: 0,
+            mostTime: -1,
             lessTime: 9999999999999999999999999999999,
-            mostAdvanced: 0,
+            mostAdvanced: -1,
             lessAdvanced: 101,
         };
     }
 
     componentDidMount() {
 
-        var courseId = this.props.location.courseId;
+
+        var courseId;
+
+        if (this.props.location.courseId != null) {
+            courseId = this.props.location.courseId;
+        } else {
+            courseId = this.props.location.pathname.split("/")[1];
+        }
 
         this.setState({
             courseId: courseId
@@ -126,8 +156,12 @@ class Participants extends Component {
                 })
             })
             .then(() => {
-                console.log(this.state.students)
-                this.getStudentsInfo();
+
+                if (this.state.courseStudents.length > 0) {
+                    this.getStudentsInfo();
+                }
+
+
             })
             .catch((error) => {
                 console.log(error);
@@ -166,6 +200,7 @@ class Participants extends Component {
         },];
 
         if (this.state.ready) {
+
             return (
                 <div className="Participants">
                     <div className="row">
@@ -176,7 +211,7 @@ class Participants extends Component {
                                    id="number"
                                    sort="courses.globalScore"
                                    search="a student"/>
-                            <Link className="btn btn-custom float-left" to="/student/add">
+                            <Link className="btn btn-custom float-left" to="students/add">
                                 Add a student
                             </Link>
                             <NotificationContainer/>
@@ -209,18 +244,18 @@ class Participants extends Component {
                                 <tr>
                                     <td className="tablerow fw600 green">Most advanced student :</td>
                                     <td
-                                        className="tablerow"> {this.state.bestStudent.firstName} {this.state.bestStudent.lastName} </td>
+                                        className="tablerow"> {this.state.mostAdvancedStudent.firstName} {this.state.mostAdvancedStudent.lastName} </td>
                                     <td className="tablerow"></td>
                                     <td className="tablerow fw600 green">% Done :</td>
-                                    <td className="tablerow"> {this.state.bestStudent.courses.percentage} </td>
+                                    <td className="tablerow"> {this.state.mostAdvancedStudent.courses.percentage} </td>
                                 </tr>
                                 <tr>
-                                    <td className="tablerow fw600 green">Most invested student :</td>
+                                    <td className="tablerow fw600 green">Most dedicated student :</td>
                                     <td
-                                        className="tablerow"> {this.state.bestStudent.firstName} {this.state.bestStudent.lastName} </td>
+                                        className="tablerow"> {this.state.mostTimeStudent.firstName} {this.state.mostTimeStudent.lastName} </td>
                                     <td className="tablerow"></td>
                                     <td className="tablerow fw600 green">Time spent :</td>
-                                    <td className="tablerow"> {this.state.bestStudent.courses.timeSpent} </td>
+                                    <td className="tablerow"> {this.state.lessTimeStudent.courses.timeSpent} </td>
                                 </tr>
                             </table>
                         </div>
@@ -244,15 +279,15 @@ class Participants extends Component {
                                 <tr>
                                     <td className="tablerow fw600 red">Less advanced student :</td>
                                     <td
-                                        className="tablerow"> {this.state.lowestStudent.firstName} {this.state.lowestStudent.lastName} </td>
+                                        className="tablerow"> {this.state.lessAdvancedStudent.firstName} {this.state.lessAdvancedStudent.lastName} </td>
                                     <td className="tablerow"></td>
                                     <td className="tablerow fw600 red">% Done :</td>
-                                    <td className="tablerow"> {this.state.lowestStudent.courses.percentage} </td>
+                                    <td className="tablerow"> {this.state.lessAdvancedStudent.courses.percentage} </td>
                                 </tr>
                                 <tr>
-                                    <td className="tablerow fw600 red">Less invested student :</td>
+                                    <td className="tablerow fw600 red">Less dedicated student :</td>
                                     <td
-                                        className="tablerow"> {this.state.lowestStudent.firstName} {this.state.lowestStudent.lastName} </td>
+                                        className="tablerow"> {this.state.lessTimeStudent.firstName} {this.state.lessTimeStudent.lastName} </td>
                                     <td className="tablerow"></td>
                                     <td className="tablerow fw600 red">Time spent :</td>
                                     <td className="tablerow"> {this.state.lowestStudent.courses.timeSpent} </td>
@@ -264,10 +299,19 @@ class Participants extends Component {
                 </div>
 
             );
+
         } else {
 
             return (
-                <div></div>
+
+                <div>
+                    <h1>test</h1>
+                    <h3>There is no student</h3>
+                    <Link className="btn btn-custom float-left" to="students/add">
+                        Add a student
+                    </Link>
+                </div>
+
             )
         }
 
