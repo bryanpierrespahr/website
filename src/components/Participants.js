@@ -7,16 +7,17 @@ import API from '../utils/api.js';
 
 class Participants extends Component {
 
-    //Method that returns a custom "edit" button
+    //Method that returns a custom "details" button
     detailsButton = (cell) => {
 
         return (
 
             <Link className="btn btn-warning" to=
                 {{
-                    pathname: "/student/" + cell,
+                    pathname: "/student/" + cell +"/course/"+this.state.courseId,
                     studentId: cell,
                     courseId: this.state.courseId,
+                    studentId: cell,
                 }}
             >
                 Details
@@ -171,7 +172,6 @@ class Participants extends Component {
 
     render() {
 
-
         //Initiate the columns that are passed to the table component
         const columns = [{
             dataField: 'firstName',
@@ -200,6 +200,12 @@ class Participants extends Component {
         },];
 
         if (this.state.ready) {
+
+            const bestGlobalScore = this.state.bestStudent.courses.globalScore;
+            const lowestGlobalScore = this.state.lowestStudent.courses.globalScore;
+
+            const roundedBestGS = Math.round(bestGlobalScore * 100) / 100;
+            const roundedLowestGS = Math.round(lowestGlobalScore * 100) / 100;
 
             return (
                 <div className="Participants">
@@ -239,7 +245,7 @@ class Participants extends Component {
                                         className="tablerow"> {this.state.bestStudent.firstName} {this.state.bestStudent.lastName} </td>
                                     <td className="tablerow"></td>
                                     <td className="tablerow fw600 green">Average score :</td>
-                                    <td className="tablerow"> {this.state.bestStudent.courses.globalScore} </td>
+                                    <td className="tablerow"> {roundedBestGS} % </td>
                                 </tr>
                                 <tr>
                                     <td className="tablerow fw600 green">Most advanced student :</td>
@@ -247,7 +253,7 @@ class Participants extends Component {
                                         className="tablerow"> {this.state.mostAdvancedStudent.firstName} {this.state.mostAdvancedStudent.lastName} </td>
                                     <td className="tablerow"></td>
                                     <td className="tablerow fw600 green">% Done :</td>
-                                    <td className="tablerow"> {this.state.mostAdvancedStudent.courses.percentage} </td>
+                                    <td className="tablerow"> {this.state.mostAdvancedStudent.courses.percentage}</td>
                                 </tr>
                                 <tr>
                                     <td className="tablerow fw600 green">Most dedicated student :</td>
@@ -274,7 +280,7 @@ class Participants extends Component {
                                         className="tablerow"> {this.state.lowestStudent.firstName} {this.state.lowestStudent.lastName} </td>
                                     <td className="tablerow"></td>
                                     <td className="tablerow fw600 red">Average score :</td>
-                                    <td className="tablerow"> {this.state.lowestStudent.courses.globalScore} </td>
+                                    <td className="tablerow"> {roundedLowestGS} %</td>
                                 </tr>
                                 <tr>
                                     <td className="tablerow fw600 red">Less advanced student :</td>

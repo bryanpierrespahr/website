@@ -16,13 +16,32 @@ class StudentDetails extends Component {
     //Used to get data from the API via HTTP GET Request
     componentDidMount() {
 
+        var studentId;
+        var courseId;
+
+        if (this.props.location.courseId != null) {
+            courseId = this.props.location.courseId;
+        } else {
+            courseId = this.props.location.pathname.split("/")[4];
+        }
+
+        if (this.props.location.studentId != null) {
+            studentId = this.props.location.studentId;
+        } else {
+            studentId = this.props.location.pathname.split("/")[2];
+        }
+
+        console.log("Student id : "+studentId);
+        console.log("course id : "+courseId)
+
         this.setState({
-            courseId: this.props.location.courseId
+            courseId: courseId,
+            studentId: studentId,
         })
 
         var student;
 
-        API.getStudent(this.props.location.studentId)
+        API.getStudent(studentId)
             .then((data) => {
                 student = data.data;
 
@@ -158,7 +177,7 @@ class StudentDetails extends Component {
                         </div>
                         <div class="col-md-6">
                             <h3>
-                                {this.state.student.courses.globalScore}
+                                {this.state.student.courses.globalScore} %
                             </h3>
                         </div>
                     </div>

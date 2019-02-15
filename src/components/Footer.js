@@ -23,7 +23,7 @@ class Footer extends Component {
                     <div className="row ">
                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                             <div className="ft-logo">
-                                <img src={require("../assets/temp.png")} width="135px" alt="logo"/>
+                                <img src={require("../assets/moodle-logo.png")} width="135px" alt="logo"/>
                             </div>
                         </div>
                     </div>
@@ -44,9 +44,9 @@ class Footer extends Component {
                             <div className="footer-widget ">
                                 <div className="footer-title">Quick Links</div>
                                 <ul className="list-unstyled">
-                                    <li><a href="/customers">Customers</a></li>
-                                    <li><a href="/trainings">Trainings</a></li>
-                                    <li><a href="/calendar">Calendar</a></li>
+                                    <li><a href="/courses">Courses</a></li>
+                                    <li><a href="/students">Students</a></li>
+                                    <li><a href="/teachers">Teachers</a></li>
                                 </ul>
                             </div>
                         </div>

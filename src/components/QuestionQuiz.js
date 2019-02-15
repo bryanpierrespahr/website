@@ -30,7 +30,13 @@ class QuestionQuiz extends Component {
             const nbCorrect = question.nbCorrect;
             const nbIncorrect = question.nbIncorrect;
             const answered = nbCorrect+nbIncorrect;
-            const correctRate = nbCorrect / answered * 100;
+            var correctRate;
+
+            if(answered > 0){
+                correctRate = nbCorrect / answered;
+            }else{
+                correctRate = " - "
+            }
 
 
             return (

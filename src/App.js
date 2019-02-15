@@ -56,7 +56,7 @@ class App extends Component {
                             <PrivateRoute path="/:courseId/students/add" component={AddStudentCourse}/>
                             <PrivateRoute exact path="/:courseId/students" component={Participants}/>
                             <PrivateRoute path="/quiz/:quizId/student/:studentId" component={QuizResult}/>
-                            <PrivateRoute path="/student/:studentId" component={StudentDetails}/>
+                            <PrivateRoute exact path="/student/:studentId/course/:courseId" component={StudentDetails}/>
                             <PrivateRoute path="/quiz/:quizId" component={Quiz}/>
                         </Switch>
                         <Footer/>

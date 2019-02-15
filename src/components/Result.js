@@ -30,7 +30,7 @@ class Result extends Component {
                         <a href={`/quiz/${result.quizId}/student/${studentId}`}>{result.title}</a>
                     </div>
                     <div className="col-md-6">
-                        <h5>{result.score}</h5>
+                        <h5>{result.score} %</h5>
                     </div>
 
                 </div>
