@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="120ad102-b347-4014-8a38-dbdc34ae14ca" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddCourse.js" afterPath="$PROJECT_DIR$/src/components/AddCourse.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddStudentCourse.js" afterPath="$PROJECT_DIR$/src/components/AddStudentCourse.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/Course.js" afterPath="$PROJECT_DIR$/src/components/Course.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/CreateQuiz.js" afterPath="$PROJECT_DIR$/src/components/CreateQuiz.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/EditCourse.js" afterPath="$PROJECT_DIR$/src/components/EditCourse.js" />
+      <change beforePath="$PROJECT_DIR$/src/components/QuestionQuiz.js" afterPath="$PROJECT_DIR$/src/components/QuestionQuiz.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,7 +15,28 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Quiz.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Quiz.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="449">
+              <caret line="43" column="46" lean-forward="true" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="QuestionQuiz.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/QuestionQuiz.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="631">
+              <caret line="103" column="59" lean-forward="true" selection-start-line="103" selection-start-column="59" selection-end-line="103" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -111,7 +127,6 @@
         <option value="$PROJECT_DIR$/src/components/QUiz.js" />
         <option value="$PROJECT_DIR$/src/components/Quiz.js" />
         <option value="$PROJECT_DIR$/src/App.css" />
-        <option value="$PROJECT_DIR$/src/components/QuestionQuiz.js" />
         <option value="$PROJECT_DIR$/src/components/Result.js" />
         <option value="$PROJECT_DIR$/src/components/StudentDetails.js" />
         <option value="$PROJECT_DIR$/src/components/QuestonResult.js" />
@@ -127,6 +142,7 @@
         <option value="$PROJECT_DIR$/src/components/EditCourse.js" />
         <option value="$PROJECT_DIR$/src/components/Course.js" />
         <option value="$PROJECT_DIR$/src/components/CreateQuiz.js" />
+        <option value="$PROJECT_DIR$/src/components/QuestionQuiz.js" />
       </list>
     </option>
   </component>
@@ -260,17 +276,18 @@
       <workItem from="1549632400621" duration="4266000" />
       <workItem from="1549694988540" duration="11762000" />
       <workItem from="1550044073666" duration="2101000" />
-      <workItem from="1550215308960" duration="2691000" />
+      <workItem from="1550215308960" duration="4138000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113968000" />
+    <option name="totallyTimeSpent" value="115415000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13177083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13177083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -336,6 +353,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="9" column="20" lean-forward="false" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -550,13 +568,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Quiz.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="586">
-          <caret line="49" column="38" lean-forward="false" selection-start-line="49" selection-start-column="38" selection-end-line="49" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ResultQuestionQuiz.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
@@ -595,13 +606,6 @@
           <folding>
             <element signature="e#0#39#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/QuestionQuiz.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="44" column="57" lean-forward="false" selection-start-line="44" selection-start-column="41" selection-end-line="44" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -692,6 +696,22 @@
             <element signature="e#0#39#0" expanded="true" />
             <element signature="e#5440#5544#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Quiz.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="43" column="46" lean-forward="true" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/QuestionQuiz.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="631">
+          <caret line="103" column="59" lean-forward="true" selection-start-line="103" selection-start-column="59" selection-end-line="103" selection-end-column="59" />
+          <folding />
         </state>
       </provider>
     </entry>
