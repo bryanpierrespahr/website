@@ -16,28 +16,34 @@ class Course extends Component {
             "quizzesId": [],
         }
 
-        console.log(week);
+        console.log("Week : " + week);
 
         API.postWeek(week)
             .then((data) => {
                 var newWeek = data.data.week;
                 newWeekId = newWeek._id;
+                console.log("New week id : " + newWeekId)
             })
             .then(() => {
 
-                this.state.weeksId.push(newWeekId);
+                var weeksId = this.state.weeksId;
+                console.log("Before push weeks id length : " + weeksId.length)
+                weeksId.push(newWeekId);
+                console.log("After push weeks id length : " + weeksId.length)
 
-                API.patchCourseWeek(this.state.courseId, this.state.weeksId)
+                API.patchCourseWeek(this.state.courseId, weeksId)
                     .then((data) => {
                         console.log(data.data);
+                    })
+                    .then(() => {
+                        console.log("refreshing")
+                        this.refreshCourse(this.state.courseId);
                     })
                     .catch((error) => {
                         console.error(error);
                     })
             })
-            .then(() => {
-                this.refreshCourse(this.state.courseId);
-            })
+
             .catch((error) => {
                 console.error(error)
             })
@@ -62,11 +68,7 @@ class Course extends Component {
                 weeksId: course.weeksId
             })
 
-        })
-
-        this.setState({
-            ready: true
-        })
+        }, () => console.log("course refreshed"))
 
     }
 
@@ -79,60 +81,39 @@ class Course extends Component {
 
     componentDidMount() {
 
+
+        var courseId;
+
         if (this.props.location.courseId != null) {
-
-            API.getCourse(this.props.location.courseId).then((data) => {
-
-                var course = data.data;
-
-                this.setState({
-                    courseId: this.props.location.courseId,
-                    course: course,
-                    name: course.name,
-                    code: course.code,
-                    scope: course.scope,
-                    timing: course.timing,
-                    language: course.language,
-                    level: course.level,
-                    type: course.type,
-                    schedule: course.schedule,
-                    weeksId: course.weeksId
-                })
-
-
-            }).then(() => {
-                this.setState({
-                    ready: true,
-                })
-            })
-
+            courseId = this.props.location.courseId;
         } else {
-
-            API.getCourse(this.props.match.params.courseName).then((data) => {
-
-                var course = data.data;
-
-                this.setState({
-                    course: course,
-                    name: course.name,
-                    code: course.code,
-                    scope: course.scope,
-                    timing: course.timing,
-                    language: course.language,
-                    level: course.level,
-                    type: course.type,
-                    schedule: course.schedule,
-                    weeksId: course.weeksId
-                })
-
-
-            }).then(() => {
-                this.setState({
-                    ready: true,
-                })
-            })
+            courseId = this.props.location.pathname.split("/")[2];
         }
 
+        API.getCourse(courseId).then((data) => {
+
+            var course = data.data;
+
+            this.setState({
+                courseId: this.props.location.courseId,
+                course: course,
+                name: course.name,
+                code: course.code,
+                scope: course.scope,
+                timing: course.timing,
+                language: course.language,
+                level: course.level,
+                type: course.type,
+                schedule: course.schedule,
+                weeksId: course.weeksId
+            })
+
+
+        }).then(() => {
+            this.setState({
+                ready: true,
+            })
+        })
 
     }
 

@@ -18,6 +18,7 @@ class AddStudentCourse extends Component {
             .then(() => {
 
                 var course = this.state.course;
+                console.log(this.state.course);
 
                 var courseToAdd = {
                     courseId: this.state.courseId,
@@ -93,6 +94,7 @@ class AddStudentCourse extends Component {
             }).then(() => {
 
             console.log(courseStudents);
+            console.log("course path "+this.state.course.path)
 
             API.getAllStudents()
                 .then((data) => {

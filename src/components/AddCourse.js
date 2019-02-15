@@ -33,6 +33,7 @@ class AddCourse extends Component {
             language: this.state.language,
             level: this.state.level,
             type: this.state.type,
+            path: this.state.path,
             objectives: this.state.objectives,
             teacherId: this.state.teacherId,
             schedule: {
@@ -96,6 +97,7 @@ class AddCourse extends Component {
             timing: '1st Semester',
             language: 'Finnish',
             level: 'Profile studies',
+            path: 'Programming',
             type: 'Compulsory',
             objectives: '',
             day: 'Monday',
@@ -202,6 +204,22 @@ class AddCourse extends Component {
                                     <option value="Compulsory">Compulsory</option>
                                     <option value="Elective">Elective</option>
                                 </select>
+                            </div>
+                        </div>
+                        <div className="form-row">
+                            <div className="form-group col-md-6 mx-auto">
+                                <label htmlFor="path" className="float-left">Path</label>
+                                <select name="path" className="form-control" id="path"
+                                        value={this.state.path} onChange={this.inputChanged}
+                                        required
+                                >
+                                    <option value="Design">Design</option>
+                                    <option value="Programming">Programming</option>
+                                    <option value="Business">Business</option>
+                                    <option value="Technology">Technology</option>
+                                </select>
+                            </div>
+                            <div className="form-group col-md-6 mx-auto">
                             </div>
                         </div>
                         <div className="form-row">

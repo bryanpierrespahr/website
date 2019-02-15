@@ -93,7 +93,9 @@ class CreateQuiz extends Component {
         var question = {
             "question": this.state.question,
             "correctAnswer": this.state.correctAnswer,
-            "incorrectAnswers": [this.state.incorrectAnswer1, this.state.incorrectAnswer2, this.state.incorrectAnswer3]
+            "incorrectAnswers": [this.state.incorrectAnswer1, this.state.incorrectAnswer2, this.state.incorrectAnswer3],
+            "nbCorrect": 0,
+            "nbIncorrect":0,
         }
 
         var questions = this.state.questions;
@@ -111,7 +113,9 @@ class CreateQuiz extends Component {
         var question = {
             "question": this.state.question,
             "correctAnswer": this.state.correctAnswer,
-            "incorrectAnswers": [this.state.incorrectAnswer1, this.state.incorrectAnswer2, this.state.incorrectAnswer3]
+            "incorrectAnswers": [this.state.incorrectAnswer1, this.state.incorrectAnswer2, this.state.incorrectAnswer3],
+            "nbCorrect": 0,
+            "nbIncorrect":0,
         }
 
         var questions = this.state.questions;
@@ -170,10 +174,16 @@ class CreateQuiz extends Component {
     //Used to get data from the API via HTTP GET Request
     componentDidMount() {
 
-        console.log(this.props.location.courseId);
+        var courseId;
+
+        if (this.props.location.courseId != null) {
+            courseId = this.props.location.courseId;
+        } else {
+            courseId = this.props.location.pathname.split("/")[1];
+        }
 
         this.setState({
-            courseId: this.props.location.courseId,
+            courseId: courseId,
             weekId: this.props.location.weekId,
             weekNo: this.props.location.weekNo,
             no: this.props.location.no,

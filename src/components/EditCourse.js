@@ -21,6 +21,7 @@ class EditCourse extends Component {
             timing: this.state.timing,
             level: this.state.level,
             type: this.state.type,
+            path: this.state.path,
             language: this.state.language,
             teacherId: this.state.teacherId,
             objectives: this.state.objectives,
@@ -83,6 +84,7 @@ class EditCourse extends Component {
             language: '',
             level: '',
             type: '',
+            path: '',
             objectives: '',
             teacherId: '',
             startHour: '',
@@ -100,6 +102,8 @@ class EditCourse extends Component {
 
                 var course = data.data;
 
+                console.log(course);
+
                 this.setState({
                     course: course,
                     name: course.name,
@@ -108,6 +112,7 @@ class EditCourse extends Component {
                     timing: course.timing,
                     level: course.level,
                     type: course.type,
+                    path: course.path,
                     language: course.language,
                     teacherId: course.teacherId,
                     objectives: course.objectives,
@@ -225,24 +230,41 @@ class EditCourse extends Component {
 
                         </div>
                         <div className="form-row">
+                        <div className="form-group col-md-6 mx-auto">
+                            <label htmlFor="level" className="float-left">Level</label>
+                            <select name="level" className="form-control" id="level"
+                                    value={this.state.level} onChange={this.inputChanged}
+                                    required
+                            >
+                                <option value="Profil studies">Profil studies</option>
+                            </select>
+                        </div>
+                        <div className="form-group col-md-6 mx-auto">
+                            <label htmlFor="type" className="float-left">Type</label>
+                            <select name="type" className="form-control" id="type"
+                                    value={this.state.type} onChange={this.inputChanged}
+                                    required
+                            >
+                                <option value="Compulsory">Compulsory</option>
+                                <option value="Elective">Elective</option>
+                            </select>
+                        </div>
+
+                    </div>
+                        <div className="form-row">
                             <div className="form-group col-md-6 mx-auto">
-                                <label htmlFor="level" className="float-left">Level</label>
-                                <select name="level" className="form-control" id="level"
-                                        value={this.state.level} onChange={this.inputChanged}
+                                <label htmlFor="path" className="float-left">Path</label>
+                                <select name="path" className="form-control" id="path"
+                                        value={this.state.path} onChange={this.inputChanged}
                                         required
                                 >
-                                    <option value="Profil studies">Profil studies</option>
+                                    <option value="Design">Design</option>
+                                    <option value="Programming">Programming</option>
+                                    <option value="Business">Business</option>
+                                    <option value="Technology">Technology</option>
                                 </select>
                             </div>
                             <div className="form-group col-md-6 mx-auto">
-                                <label htmlFor="type" className="float-left">Type</label>
-                                <select name="type" className="form-control" id="type"
-                                        value={this.state.type} onChange={this.inputChanged}
-                                        required
-                                >
-                                    <option value="Compulsory">Compulsory</option>
-                                    <option value="Elective">Elective</option>
-                                </select>
                             </div>
                         </div>
                         <div className="form-row">
