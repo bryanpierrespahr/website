@@ -13,6 +13,7 @@ import NavigationBar from './components/NavigationBar';
 import Footer from './components/Footer';
 import AddCourse from './components/AddCourse';
 import EditCourse from './components/EditCourse';
+import CourseDetails from './components/CourseDetails';
 import AddStudent from './components/AddStudent';
 import AddStudentCourse from './components/AddStudentCourse';
 import EditStudent from './components/EditStudent';
@@ -43,6 +44,7 @@ class App extends Component {
                             <PrivateRoute path='/courses' component={Courses}/>
                             <PrivateRoute path="/course/add" component={AddCourse}/>
                             <PrivateRoute path="/course/edit" component={EditCourse}/>
+                            <PrivateRoute path="/course/details/:courseId" component={CourseDetails}/>
                             <PrivateRoute path='/students' component={Students}/>
                             <PrivateRoute path="/student/add" component={AddStudent}/>
                             <PrivateRoute path="/student/edit" component={EditStudent}/>

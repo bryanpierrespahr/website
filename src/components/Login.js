@@ -66,7 +66,7 @@ export class Login extends React.Component {
         return (
             <div className="container">
                 <div className="row" id="pwd-container">
-                    <div className="col-md-3"></div>
+                    <div className="col-md-3"/>
                     <div className="col-md-6">
                         <section className="login-form">
                             <form role="login">
@@ -102,26 +102,5 @@ export class Login extends React.Component {
                 </div>
             </div>
         )
-        // return (
-        //     <div className="Login">
-        //         <FormGroup controlId="email" bsSize="large">
-        //             <ControlLabel>Email</ControlLabel>
-        //             <FormControl autoFocus type="email" value={this.state.email} onChange={this.handleChange}/>
-        //         </FormGroup>
-        //         <FormGroup controlId="password" bsSize="large">
-        //             <ControlLabel>Password</ControlLabel>
-        //             <FormControl value={this.state.password} onChange={this.handleChange} type="password"/>
-        //         </FormGroup>
-        //         <Button
-        //             className="btn btn-custom"
-        //             onClick={this.send}
-        //             block
-        //             bsSize="large"
-        //             type="submit"
-        //         >
-        //             Connexion
-        //         </Button>
-        //     </div>
-        // )
     }
 }

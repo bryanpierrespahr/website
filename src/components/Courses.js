@@ -22,7 +22,7 @@ class Courses extends Component {
             </Link>
 
         );
-    }
+    };
 
     //Method that returns a custom "delete" button
     deleteButton = (cell) => {
@@ -30,6 +30,23 @@ class Courses extends Component {
         return (
             <button className="btn btn-danger"
                     onClick={() => this.deleteCourse(cell)}>Delete</button>
+
+        );
+    };
+
+    //Method that returns a custom "edit" button
+    detailsButton = (cell) => {
+
+        return (
+
+            <Link className="btn btn-success" to=
+                {{
+                    pathname: "/course/details/"+cell,
+                    param1: cell
+                }}
+            >
+                Details
+            </Link>
 
         );
     }
@@ -79,6 +96,10 @@ class Courses extends Component {
             dataField: 'language',
             text: 'Language',
             sort: true
+        }, {
+            dataField: '_id',
+            text: 'Details',
+            formatter: this.detailsButton
         }, {
             dataField: '_id',
             text: 'Edit',

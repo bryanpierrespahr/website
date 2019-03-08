@@ -48,10 +48,8 @@ class MyCourses extends Component {
                 for (var i = 0; i < courses.length; i++) {
                     console.log(courses[i].teacherId)
                     console.log(teacherId)
-                    if (courses[i].teacherId == teacherId) {
+                    if (courses[i].teacherId == teacherId)
                         myCourses.push(courses[i])
-                    }
-
                 }
 
                 console.log(myCourses)
@@ -86,18 +84,31 @@ class MyCourses extends Component {
             formatter: this.selectButton
         }];
 
+        if(this.state.courses.length < 1){
+            return(
+                <div className="col-10 mx-auto">
+                    <h3 className="titleMarginTop text-left">My courses</h3>
+                    <Table data={this.state.courses}
+                           columns={columns}
+                           id="code"
+                           sort="name"
+                           search="a course"/>
+
+                    <h3>You don't have any course</h3>
+                    <NotificationContainer/>
+                </div>
+            )
+        }
+
         return (
 
             <div className="col-10 mx-auto">
-                <h3 className="titleMarginTop text-left">Courses</h3>
+                <h3 className="titleMarginTop text-left">My courses</h3>
                 <Table data={this.state.courses}
                        columns={columns}
                        id="code"
                        sort="name"
                        search="a course"/>
-                <Link className="btn btn-custom float-left" to="/course/add">
-                    Add a course
-                </Link>
                 <NotificationContainer/>
             </div>
         );

@@ -62,6 +62,7 @@ class Teachers extends Component {
             })
     }
 
+
     render() {
 
         //Initiate the columns that are passed to the table component
