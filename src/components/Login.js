@@ -25,6 +25,7 @@ export class Login extends React.Component {
                 if (data.token != null) {
                     sessionStorage.setItem('token', data.token);
                     sessionStorage.setItem('id', data.user._id);
+                    sessionStorage.setItem('role',data.user.role)
 
                     if (data.user.role == "teacher") {
                         API.getTeacherByEmail(this.state.email)

@@ -84,7 +84,7 @@ class Teachers extends Component {
     render() {
 
         //Initiate the columns that are passed to the table component
-        const columns = [{
+        const adminColumns = [{
             dataField: 'firstName',
             text: 'First name',
             sort: true
@@ -110,21 +110,59 @@ class Teachers extends Component {
             formatter: this.deleteButton
         }];
 
-        return (
+        //Initiate the columns that are passed to the table component
+        const columns = [{
+            dataField: 'firstName',
+            text: 'First name',
+            sort: true
+        }, {
+            dataField: 'lastName',
+            text: 'Last name',
+            sort: true
+        }, {
+            dataField: 'email',
+            text: 'email',
+            sort: true
+        },  {
+            dataField: '_id',
+            text: 'Details',
+            formatter: this.detailsButton
+        }];
 
-            <div className="col-10 mx-auto">
-                <h3 className="titleMarginTop text-left">Teachers</h3>
-                <Table data={this.state.teachers}
-                       columns={columns}
-                       id="email"
-                       sort="lastName"
-                       search="a teacher"/>
-                <Link className="btn btn-custom float-left" to="/teacher/add">
-                    Add a teacher
-                </Link>
-                <NotificationContainer/>
-            </div>
-        );
+        if(sessionStorage.getItem('role' == "admin")){
+            return (
+
+                <div className="col-10 mx-auto">
+                    <h3 className="titleMarginTop text-left">Teachers</h3>
+                    <Table data={this.state.teachers}
+                           columns={adminColumns}
+                           id="email"
+                           sort="lastName"
+                           search="a teacher"/>
+                    <Link className="btn btn-custom float-left" to="/teacher/add">
+                        Add a teacher
+                    </Link>
+                    <NotificationContainer/>
+                </div>
+            );
+        }else{
+            return (
+
+                <div className="col-10 mx-auto">
+                    <h3 className="titleMarginTop text-left">Teachers</h3>
+                    <Table data={this.state.teachers}
+                           columns={columns}
+                           id="email"
+                           sort="lastName"
+                           search="a teacher"/>
+                    <Link className="btn btn-custom float-left" to="/teacher/add">
+                        Add a teacher
+                    </Link>
+                    <NotificationContainer/>
+                </div>
+            );
+        }
+
     }
 }
 

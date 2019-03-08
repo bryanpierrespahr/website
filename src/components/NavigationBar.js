@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import API from "../utils/api";
 
 //Navigation bar component that is always rendered (on every page)
 class NavigationBar extends Component {
 
     isAuthenticated = () => {
 
-        if(sessionStorage.getItem('token') != null)
+        if (sessionStorage.getItem('token') != null)
             return true
         else
             return false
@@ -15,12 +16,15 @@ class NavigationBar extends Component {
     //Called when the user click on the sign out link
     signOut = () => {
 
+        API.logout();
+        window.location = "/";
+
     }
 
     //Constructor
     constructor(props) {
         super(props);
-        this.state = {token : ''}
+        this.state = {token: ''}
     }
 
     //Method called immediately after the component is mounted
@@ -63,7 +67,16 @@ class NavigationBar extends Component {
                         </ul>
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
-                                <Link className="nav-link" to="/signup">My account</Link>
+                                <div className="dropdown">
+                                    <button className="btn dropdown-toggle" type="button"
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                        My account
+                                    </button>
+                                    <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <button type="button" className="dropdown-item" onClick={this.signOut} >Log out</button>
+                                    </div>
+                                </div>
                             </li>
                         </ul>
                     </div>

@@ -83,7 +83,7 @@ class Students extends Component {
     render() {
 
         //Initiate the columns that are passed to the table component
-        const columns = [{
+        const adminColumns = [{
             dataField: 'firstName',
             text: 'First name',
             sort: true
@@ -113,21 +113,63 @@ class Students extends Component {
             formatter: this.deleteButton
         }];
 
-        return (
+        const columns = [{
+            dataField: 'firstName',
+            text: 'First name',
+            sort: true
+        }, {
+            dataField: 'lastName',
+            text: 'Last name',
+            sort: true
+        }, {
+            dataField: 'number',
+            text: 'Number',
+            sort: true
+        },{
+            dataField: 'email',
+            text: 'email',
+            sort: true
+        },{
+            dataField: '_id',
+            text: 'Details',
+            formatter: this.detailsButton
+        }];
 
-            <div className="col-10 mx-auto">
-                <h3 className="titleMarginTop text-left">Students</h3>
-                <Table data={this.state.students}
-                       columns={columns}
-                       id="number"
-                       sort="lastName"
-                       search="a student"/>
-                <Link className="btn btn-custom float-left" to="/student/add">
-                    Add a student
-                </Link>
-                <NotificationContainer/>
-            </div>
-        );
+        if(sessionStorage.getItem('role') == "admin"){
+            return (
+
+                <div className="col-10 mx-auto">
+                    <h3 className="titleMarginTop text-left">Students</h3>
+                    <Table data={this.state.students}
+                           columns={adminColumns}
+                           id="number"
+                           sort="lastName"
+                           search="a student"/>
+                    <Link className="btn btn-custom float-left" to="/student/add">
+                        Add a student
+                    </Link>
+                    <NotificationContainer/>
+                </div>
+            );
+        }else{
+            return (
+
+                <div className="col-10 mx-auto">
+                    <h3 className="titleMarginTop text-left">Students</h3>
+                    <Table data={this.state.students}
+                           columns={columns}
+                           id="number"
+                           sort="lastName"
+                           search="a student"/>
+                    <Link className="btn btn-custom float-left" to="/student/add">
+                        Add a student
+                    </Link>
+                    <NotificationContainer/>
+                </div>
+            );
+        }
+
+
     }
 }
 
