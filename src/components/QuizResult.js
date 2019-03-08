@@ -39,7 +39,6 @@ class QuizResult extends Component {
                         for (var i = 0; i < student.courses.length; i++) {
 
                             var course = student.courses[i];
-                            console.log("course : " + course.courseId)
 
                             for (var j = 0; j < course.quizResults.length; j++) {
 
@@ -51,10 +50,6 @@ class QuizResult extends Component {
                                         result: result
                                     })
 
-                                } else {
-                                    console.log("result quizid = " + result.quizId);
-                                    console.log("quiz id " + quizId);
-                                    console.log("pas egal")
                                 }
                             }
                         }

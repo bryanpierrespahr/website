@@ -60,10 +60,6 @@ class EditCourse extends Component {
 
     timeChanged = (event) => {
 
-        console.log("CHANGED")
-
-        console.log(event.startTime)
-
         this.setState({
             startHour: event.startTime,
             endHour: event.endTime

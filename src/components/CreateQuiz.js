@@ -80,8 +80,6 @@ class CreateQuiz extends Component {
     //Handle the change on input fields
     inputChanged = (event) => {
 
-        console.log(event.target.name)
-        console.log(event.target.value)
 
         //Set the new value to the appropriate state
         this.setState({[event.target.name]: event.target.value})
@@ -122,7 +120,7 @@ class CreateQuiz extends Component {
         questions.push(question);
         this.setState({
             questions: questions
-        }, () => console.log(this.state.questions))
+        })
 
 
         this.setState({
@@ -138,8 +136,6 @@ class CreateQuiz extends Component {
     }
     handleChange = (event) => {
 
-        console.log(event.target.name);
-        console.log(event.target.value);
 
         //Set the new value to the appropriate state
         this.setState({[event.target.name]: event.target.value})

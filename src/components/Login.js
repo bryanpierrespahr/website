@@ -43,9 +43,6 @@ export class Login extends React.Component {
 
     handleChange = event => {
 
-        console.log(event.target.id);
-        console.log(event.target.value);
-
         this.setState({
             [event.target.id]: event.target.value
         });
@@ -91,10 +88,6 @@ export class Login extends React.Component {
                                 <div>
                                     Don't have an account yet ? <a className="customLogin" href="/signup">Sign up
                                     now </a>
-                                </div>
-                                <div>
-                                    Forgot your password ? <a className="customLogin" href="/passwordforget">Reset
-                                    it</a>
                                 </div>
                             </form>
                         </section>

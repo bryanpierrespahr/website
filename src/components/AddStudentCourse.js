@@ -93,9 +93,6 @@ class AddStudentCourse extends Component {
 
             }).then(() => {
 
-            console.log(courseStudents);
-            console.log("course path "+this.state.course.path)
-
             API.getAllStudents()
                 .then((data) => {
 

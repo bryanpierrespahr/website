@@ -60,10 +60,6 @@ class CreateLecture extends Component {
 
     //Handle the change on input fields
     inputChanged = (event) => {
-
-        console.log(event.target.name)
-        console.log(event.target.value)
-
         //Set the new value to the appropriate state
         this.setState({[event.target.name]: event.target.value})
 

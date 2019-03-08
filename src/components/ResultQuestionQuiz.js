@@ -13,7 +13,6 @@ class ResultQuestionQuiz extends Component {
 
     componentDidMount() {
 
-        console.log(this.props.question);
 
         this.setState({
             question: this.props.question,

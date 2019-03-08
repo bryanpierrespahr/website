@@ -61,19 +61,12 @@ class AddCourse extends Component {
     //Handle the change on input fields
     inputChanged = (event) => {
 
-        console.log(event.target.name)
-        console.log(event.target.value)
-
         //Set the new value to the appropriate state
         this.setState({[event.target.name]: event.target.value})
 
     }
 
     timeChanged = (event) => {
-
-        console.log("CHANGED")
-
-        console.log(event.startTime)
 
         this.setState({
             startHour: event.startTime,

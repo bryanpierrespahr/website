@@ -18,7 +18,6 @@ class Week extends Component {
 
     componentDidMount() {
 
-        console.log("COMPONENT : Week");
 
         API.getWeek(this.props.id)
             .then(data => {

@@ -31,8 +31,6 @@ class StudentDetails extends Component {
             studentId = this.props.location.pathname.split("/")[2];
         }
 
-        console.log("Student id : "+studentId);
-        console.log("course id : "+courseId)
 
         this.setState({
             courseId: courseId,
@@ -55,7 +53,6 @@ class StudentDetails extends Component {
                         var c = student.courses[z];
                         student.courses = c;
                         student.courses.timeSpent = time;
-                        console.log("Student : " + student)
                         break;
                     }
                 }

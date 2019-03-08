@@ -22,21 +22,21 @@ class Course extends Component {
             .then((data) => {
                 var newWeek = data.data.week;
                 newWeekId = newWeek._id;
-                console.log("New week id : " + newWeekId)
+
             })
             .then(() => {
 
                 var weeksId = this.state.weeksId;
-                console.log("Before push weeks id length : " + weeksId.length)
+
                 weeksId.push(newWeekId);
-                console.log("After push weeks id length : " + weeksId.length)
+
 
                 API.patchCourseWeek(this.state.courseId, weeksId)
                     .then((data) => {
                         console.log(data.data);
                     })
                     .then(() => {
-                        console.log("refreshing")
+
                         this.refreshCourse(this.state.courseId);
                     })
                     .catch((error) => {

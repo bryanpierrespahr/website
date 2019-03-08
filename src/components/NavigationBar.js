@@ -40,7 +40,7 @@ class NavigationBar extends Component {
             return (
                 <nav className="navbar navbar-expand-lg navbar-light">
                     <Link className="navbar-brand" to="/">
-                        <img src={require("../assets/moodle-logo.png")} width="100" alt="logo"/>
+                        <img src={require("../assets/moodle-logo.png")} width="80" alt="logo"/>
                     </Link>
                     <button className="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"

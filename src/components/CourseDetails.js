@@ -33,7 +33,6 @@ class CourseDetails extends Component {
 
         }
 
-        console.log(course);
 
         API.patchCourse(this.props.location.param1, course).then(() => {
             window.location = "/courses"
@@ -99,7 +98,6 @@ class CourseDetails extends Component {
 
                 var course = data.data;
 
-                console.log(course);
 
                 this.setState({
                     course: course,

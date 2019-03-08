@@ -52,8 +52,6 @@ class Answer extends Component {
 
             else if (answer == studentAnswer && correctAnswer != studentAnswer) {
 
-                console.log("student ans : "+studentAnswer)
-
                 return (
                     <div className="row">
                         <div className="col-md-12">

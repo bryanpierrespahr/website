@@ -92,8 +92,6 @@ class CreateLink extends Component {
     //Used to get data from the API via HTTP GET Request
     componentDidMount() {
 
-        console.log(this.props.location.courseId);
-
         this.setState({
             courseId: this.props.location.courseId,
             weekId: this.props.location.weekId,
