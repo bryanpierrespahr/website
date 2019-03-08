@@ -8,7 +8,7 @@ import {Redirect} from 'react-router-dom';
 import API from "../utils/api";
 
 //Component class that renders a form to edit a course info using 'bootstrap4-form-validation'
-class EditCourse extends Component {
+class CourseDetails extends Component {
 
     //Save the modifications and update the courses info with the API via a POST request
     saveModification = (e) => {
@@ -271,6 +271,6 @@ class EditCourse extends Component {
     }
 }
 
-export default EditCourse;
+export default CourseDetails;
 
 

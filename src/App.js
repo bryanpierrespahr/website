@@ -8,7 +8,9 @@ import Courses from './components/Courses.js';
 import Course from './components/Course';
 import Participants from './components/Participants';
 import Students from './components/Students.js';
+import Student from './components/Student.js';
 import Teachers from './components/Teachers.js';
+import Teacher from './components/Teacher.js';
 import NavigationBar from './components/NavigationBar';
 import Footer from './components/Footer';
 import AddCourse from './components/AddCourse';
@@ -40,26 +42,28 @@ class App extends Component {
                             <Route exact path="/" component={HomePage}/>
                             <Route exact path="/login" component={Login}/>
                             <Route exact path="/signup" component={SignUp}/>
-                            <PrivateRoute path='/dashboard' component={Dashboard}/>
-                            <PrivateRoute path='/courses' component={Courses}/>
-                            <PrivateRoute path="/course/add" component={AddCourse}/>
-                            <PrivateRoute path="/course/edit" component={EditCourse}/>
-                            <PrivateRoute path="/course/details/:courseId" component={CourseDetails}/>
-                            <PrivateRoute path='/students' component={Students}/>
-                            <PrivateRoute path="/student/add" component={AddStudent}/>
-                            <PrivateRoute path="/student/edit" component={EditStudent}/>
-                            <PrivateRoute path='/teachers' component={Teachers}/>
-                            <PrivateRoute path="/teacher/add" component={AddTeacher}/>
-                            <PrivateRoute path="/teacher/edit" component={EditTeacher}/>
-                            <PrivateRoute path="/course/:courseId" component={Course}/>
-                            <PrivateRoute path="/quiz/add" component={CreateQuiz}/>
-                            <PrivateRoute path="/link/add" component={CreateLink}/>
-                            <PrivateRoute path="/lecture/add" component={CreateLecture}/>
-                            <PrivateRoute path="/:courseId/students/add" component={AddStudentCourse}/>
+                            <PrivateRoute exact path='/dashboard' component={Dashboard}/>
+                            <PrivateRoute exact path='/courses' component={Courses}/>
+                            <PrivateRoute exact path="/course/add" component={AddCourse}/>
+                            <PrivateRoute exact path="/course/edit" component={EditCourse}/>
+                            <PrivateRoute exact path='/students' component={Students}/>
+                            <PrivateRoute exact path="/student/add" component={AddStudent}/>
+                            <PrivateRoute exact path="/student/edit" component={EditStudent}/>
+                            <PrivateRoute exact path='/teachers' component={Teachers}/>
+                            <PrivateRoute exact path="/teacher/add" component={AddTeacher}/>
+                            <PrivateRoute exact path="/teacher/edit" component={EditTeacher}/>
+                            <PrivateRoute exact path="/quiz/add" component={CreateQuiz}/>
+                            <PrivateRoute exact path="/link/add" component={CreateLink}/>
+                            <PrivateRoute exact path="/lecture/add" component={CreateLecture}/>
+                            <PrivateRoute exact path="/:courseId/students/add" component={AddStudentCourse}/>
                             <PrivateRoute exact path="/:courseId/students" component={Participants}/>
-                            <PrivateRoute path="/quiz/:quizId/student/:studentId" component={QuizResult}/>
+                            <PrivateRoute exact path="/quiz/:quizId" component={Quiz}/>
+                            <PrivateRoute exact path="/quiz/:quizId/student/:studentId" component={QuizResult}/>
                             <PrivateRoute exact path="/student/:studentId/course/:courseId" component={StudentDetails}/>
-                            <PrivateRoute path="/quiz/:quizId" component={Quiz}/>
+                            <PrivateRoute exact path="/course/:courseId" component={Course}/>
+                            <PrivateRoute exact path="/course/details/:courseId" component={CourseDetails}/>
+                            <PrivateRoute exact path='/student/:studentId' component={Student}/>
+                            <PrivateRoute exact path='/teacher/:teacherId' component={Teacher}/>
                         </Switch>
                         <Footer/>
                     </div>

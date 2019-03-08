@@ -24,6 +24,23 @@ class Students extends Component {
         );
     }
 
+    //Method that returns a custom "details" button
+    detailsButton = (cell) => {
+
+        return (
+
+            <Link className="btn btn-success" to=
+                {{
+                    pathname: "/student/"+cell,
+                    param1: cell
+                }}
+            >
+                Details
+            </Link>
+
+        );
+    }
+
     //Method that returns a custom "delete" button
     deleteButton = (cell) => {
 
@@ -82,6 +99,10 @@ class Students extends Component {
             dataField: 'email',
             text: 'email',
             sort: true
+        },{
+            dataField: '_id',
+            text: 'Details',
+            formatter: this.detailsButton
         }, {
             dataField: '_id',
             text: 'Edit',
