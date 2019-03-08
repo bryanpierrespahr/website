@@ -126,7 +126,7 @@ class AddTeacher extends Component {
                         </div>
                         <div className="col-md-10 mx-auto">
                             <button onClick={this.addTeacher}
-                                    name="submit" type="submit" className="btn btn-primary">Add teacher
+                                    name="submit" type="submit" className="btn btn-custom">Add teacher
                             </button>
                         </div>
                     </div>

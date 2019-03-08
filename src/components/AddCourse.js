@@ -290,7 +290,7 @@ class AddCourse extends Component {
                         </div>
                         <div className="col-md-10 mx-auto">
                             <button onClick={this.addCourse}
-                                    name="submit" type="submit" className="btn btn-primary">Add course
+                                    name="submit" type="submit" className="btn btn-custom">Add course
                             </button>
                         </div>
                     </div>

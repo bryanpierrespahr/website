@@ -79,6 +79,9 @@ class StudentDetails extends Component {
             //Redirect to the customers page
             return (<div></div>);
         } else {
+
+            const globalScore = this.state.student.courses.globalScore;
+            const roundedGS = Math.round(globalScore * 100) / 100;
             return (
 
                 <div class="container">
@@ -125,7 +128,7 @@ class StudentDetails extends Component {
                         </div>
                         <div class="col-md-6">
                             <h3>
-                                {this.state.student.courses.globalScore}
+                                {roundedGS} %
                             </h3>
                         </div>
                     </div>
@@ -177,7 +180,7 @@ class StudentDetails extends Component {
                         </div>
                         <div class="col-md-6">
                             <h3>
-                                {this.state.student.courses.globalScore} %
+                                {roundedGS} %
                             </h3>
                         </div>
                     </div>

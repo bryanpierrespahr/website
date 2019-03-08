@@ -5,7 +5,7 @@ const headers = {
     'Content-Type': 'application/json',
 }
 
-const burl = "http://192.168.0.102:3001";
+const burl = "http://10.196.2.47:3001";
 
 export default {
 

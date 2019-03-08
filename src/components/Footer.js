@@ -23,19 +23,19 @@ class Footer extends Component {
                     <div className="row ">
                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                             <div className="ft-logo">
-                                <img src={require("../assets/moodle-logo.png")} width="135px" alt="logo"/>
+                                <img src={require("../assets/moodle-logo-large.png")} width="65%%" alt="logo"/>
                             </div>
                         </div>
                     </div>
-                    <ColoredLine color="#A23F51" className="footer-line"/>
+                    <ColoredLine color="#f37d29" className="footer-line"/>
                     <div className="row ">
                         <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 ">
                             <div className="footer-widget ">
                                 <div className="footer-title">Company</div>
                                 <ul className="list-unstyled">
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#">Contact us</a></li>
-                                    <li><a href="#">FAQ</a></li>
+                                    <li><a className="footer-links" href="#">About</a></li>
+                                    <li><a className="footer-links" href="#">Contact us</a></li>
+                                    <li><a className="footer-links" href="#">FAQ</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -44,9 +44,9 @@ class Footer extends Component {
                             <div className="footer-widget ">
                                 <div className="footer-title">Quick Links</div>
                                 <ul className="list-unstyled">
-                                    <li><a href="/courses">Courses</a></li>
-                                    <li><a href="/students">Students</a></li>
-                                    <li><a href="/teachers">Teachers</a></li>
+                                    <li><a className="footer-links" href="/courses">Courses</a></li>
+                                    <li><a className="footer-links" href="/students">Students</a></li>
+                                    <li><a className="footer-links" href="/teachers">Teachers</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -55,10 +55,14 @@ class Footer extends Component {
                             <div className="footer-widget ">
                                 <div className="footer-title">Social</div>
                                 <ul className="list-unstyled">
-                                    <li><a href="https://twitter.com/AlphaFitnessFI">Twitter</a></li>
-                                    <li><a href="https://plus.google.com/111334605642927884463">Google +</a></li>
-                                    <li><a href="www.linkedin.com/in/alphafitness">Linked In</a></li>
-                                    <li><a href="https://www.facebook.com/Alpha-Fitness-1088246158018276">Facebook</a>
+                                    <li><a className="footer-links"
+                                           href="https://twitter.com/AlphaFitnessFI">Twitter</a></li>
+                                    <li><a className="footer-links"
+                                           href="https://plus.google.com/111334605642927884463">Google +</a></li>
+                                    <li><a className="footer-links" href="www.linkedin.com/in/alphafitness">Linked
+                                        In</a></li>
+                                    <li><a className="footer-links"
+                                           href="https://www.facebook.com/Alpha-Fitness-1088246158018276">Facebook</a>
                                     </li>
                                 </ul>
                             </div>
@@ -67,9 +71,10 @@ class Footer extends Component {
                     <div className="row ">
                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center ">
                             <div className="tiny-footer">
-                                <p>Copyright © All Rights Reserved 2018 | <a
-                                    href="https://github.com/bryanpierrespahr/"
-                                    target="_blank" rel="noopener noreferrer" className="copyrightlink">Bryan Spahr</a>
+                                <p>Copyright © All Rights Reserved 2019 | <a
+                                                                             href="https://github.com/bryanpierrespahr/"
+                                                                             target="_blank" rel="noopener noreferrer"
+                                                                             className="copyright-links">Bryan Spahr</a>
                                 </p>
                             </div>
                         </div>

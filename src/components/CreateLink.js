@@ -136,7 +136,7 @@ class CreateLink extends Component {
                         <div className="form-row">
                             <div className="form-group col-md-12 mx-auto">
                                 <div className="form-group col-md-4 mx-auto">
-                                    <button name="submit" type="submit" className="btn btn-primary">Add link</button>
+                                    <button name="submit" type="submit" className="btn btn-custom">Add link</button>
                                 </div>
                             </div>
                         </div>
