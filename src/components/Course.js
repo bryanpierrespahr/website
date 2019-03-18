@@ -98,21 +98,16 @@ class Course extends Component {
 
     componentDidMount() {
 
-
         var courseId;
 
-        if (this.props.location.courseId != null) {
-            courseId = this.props.location.courseId;
-        } else {
-            courseId = this.props.location.pathname.split("/")[2];
-        }
+        courseId = this.props.location.pathname.split("/")[2];
 
         API.getCourse(courseId).then((data) => {
 
             var course = data.data;
 
             this.setState({
-                courseId: this.props.location.courseId,
+                courseId: courseId,
                 course: course,
                 name: course.name,
                 code: course.code,

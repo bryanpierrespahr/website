@@ -23,6 +23,7 @@ class QuizLink extends Component {
                     weekNo: quiz.weekNo,
                     title: quiz.title,
                     quizId: quiz._id,
+                    course: this.props.course,
                 })
             })
             .then(() => {
@@ -61,7 +62,7 @@ class QuizLink extends Component {
                                 console.log(data.data)
                             }
                         ).then(() => {
-                            window.location = "/course/" + this.state.courseId;
+                            window.location = "/course/" + this.state.course._id;
                         })
                     })
 

@@ -2,39 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="120ad102-b347-4014-8a38-dbdc34ae14ca" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddContent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddCourse.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddCourse.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddLecture.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddLecture.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddQuiz.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddQuiz.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddStudent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddStudent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Answer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Answer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Course.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Course.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Courses.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Courses.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CreateLecture.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CreateLecture.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CreateLink.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CreateLink.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CreateQuiz.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CreateQuiz.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/EditCourse.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EditCourse.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomePage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/LectureLink.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LectureLink.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/LinkLink.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LinkLink.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MyCourses.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyCourses.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NavigationBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavigationBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Participants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Participants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/QuestionQuiz.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/QuestionQuiz.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Question.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Question.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/QuizLink.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/QuizLink.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Result.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Result.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ResultQuestionQuiz.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ResultQuestionQuiz.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Student.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Student.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/StudentDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/StudentDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Students.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Students.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Teachers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Teachers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Week.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Week.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/api.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -48,19 +20,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App.css">
+        <entry file="file://$PROJECT_DIR$/src/components/Course.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="375" column="19" lean-forward="true" selection-start-line="375" selection-start-column="19" selection-end-line="375" selection-end-column="19" />
+            <state relative-caret-position="276">
+              <caret line="156" column="45" lean-forward="true" selection-start-line="156" selection-start-column="45" selection-end-line="156" selection-end-column="45" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/Course.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/LoginForm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="842">
-              <caret line="146" column="41" lean-forward="true" selection-start-line="146" selection-start-column="41" selection-end-line="146" selection-end-column="41" />
+            <state relative-caret-position="433">
+              <caret line="47" column="31" lean-forward="true" selection-start-line="47" selection-start-column="31" selection-end-line="47" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -77,8 +49,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Week.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="31" column="42" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
+            <state relative-caret-position="451">
+              <caret line="81" column="49" lean-forward="true" selection-start-line="81" selection-start-column="49" selection-end-line="81" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -86,8 +58,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/LectureLink.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1679">
-              <caret line="76" column="42" selection-start-line="76" selection-start-column="14" selection-end-line="76" selection-end-column="42" />
+            <state relative-caret-position="581">
+              <caret line="102" column="20" lean-forward="true" selection-start-line="102" selection-start-column="20" selection-end-line="102" selection-end-column="20" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -95,8 +70,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/QuizLink.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="736">
-              <caret line="35" column="26" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
+            <state relative-caret-position="604">
+              <caret line="91" column="22" lean-forward="true" selection-start-line="91" selection-start-column="22" selection-end-line="91" selection-end-column="22" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -113,11 +88,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/LinkLink.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="25" column="46" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
+            <state relative-caret-position="589">
+              <caret line="89" column="16" lean-forward="true" selection-start-line="89" selection-start-column="16" selection-end-line="89" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -125,8 +100,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/CreateLecture.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="966">
-              <caret line="45" column="33" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
+            <state relative-caret-position="216">
+              <caret line="21" column="34" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -134,7 +109,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/CreateQuiz.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1196">
+            <state relative-caret-position="884">
               <caret line="58" selection-start-line="58" selection-end-line="58" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
@@ -154,16 +129,10 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>localho</find>
-      <find>login</find>
-      <find>burl</find>
-      <find>postUs</find>
-      <find>postUser</find>
       <find>level</find>
       <find>Profil studie</find>
       <find>Profil stud</find>
       <find>setItem</find>
-      <find>Week</find>
       <find>AddLectu</find>
       <find>postLecture</find>
       <find>patchLectureWeek</find>
@@ -182,8 +151,14 @@
       <find>postQui</find>
       <find>id=&quot;hide</find>
       <find>There is no st</find>
-      <find>delete</find>
       <find>Math.roun</find>
+      <find>delete</find>
+      <find>componentDi</find>
+      <find>&lt;lectureL</find>
+      <find>&lt;lecture</find>
+      <find>else</find>
+      <find>courseId</find>
+      <find>Week</find>
     </findStrings>
     <replaceStrings>
       <replace>http://192.168.1.101</replace>
@@ -204,7 +179,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/components/CreateQuizz.js" />
-        <option value="$PROJECT_DIR$/src/components/Question.js" />
         <option value="$PROJECT_DIR$/src/components/AddLink.js" />
         <option value="$PROJECT_DIR$/src/components/CourseStudents.js" />
         <option value="$PROJECT_DIR$/src/components/EditStudent.js" />
@@ -238,7 +212,6 @@
         <option value="$PROJECT_DIR$/src/components/Student.js" />
         <option value="$PROJECT_DIR$/src/components/ResultQuestionQuiz.js" />
         <option value="$PROJECT_DIR$/src/components/Result.js" />
-        <option value="$PROJECT_DIR$/src/components/Course.js" />
         <option value="$PROJECT_DIR$/src/components/Teachers.js" />
         <option value="$PROJECT_DIR$/src/components/EditCourse.js" />
         <option value="$PROJECT_DIR$/src/components/AddCourse.js" />
@@ -249,11 +222,13 @@
         <option value="$PROJECT_DIR$/src/components/CreateLecture.js" />
         <option value="$PROJECT_DIR$/src/utils/api.js" />
         <option value="$PROJECT_DIR$/src/components/Week.js" />
-        <option value="$PROJECT_DIR$/src/components/LectureLink.js" />
-        <option value="$PROJECT_DIR$/src/components/QuizLink.js" />
-        <option value="$PROJECT_DIR$/src/components/LinkLink.js" />
         <option value="$PROJECT_DIR$/src/components/Participants.js" />
         <option value="$PROJECT_DIR$/src/App.css" />
+        <option value="$PROJECT_DIR$/src/components/Course.js" />
+        <option value="$PROJECT_DIR$/src/components/QuizLink.js" />
+        <option value="$PROJECT_DIR$/src/components/Question.js" />
+        <option value="$PROJECT_DIR$/src/components/LectureLink.js" />
+        <option value="$PROJECT_DIR$/src/components/LinkLink.js" />
       </list>
     </option>
   </component>
@@ -382,12 +357,12 @@
       <workItem from="1552553994063" duration="12704000" />
       <workItem from="1552634319911" duration="814000" />
       <workItem from="1552816448280" duration="1448000" />
-      <workItem from="1552911349988" duration="640000" />
+      <workItem from="1552911349988" duration="2834000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="183436000" />
+    <option name="totallyTimeSpent" value="185630000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -423,7 +398,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13593256" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13540569" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -644,13 +619,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/LoginForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="49" column="14" lean-forward="true" selection-start-line="49" selection-start-column="14" selection-end-line="49" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Students.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="796">
@@ -663,7 +631,7 @@
         <state relative-caret-position="313">
           <caret line="134" column="30" selection-start-line="134" selection-start-column="30" selection-end-line="134" selection-end-column="30" />
           <folding>
-            <element signature="e#0#39#0" expanded="false" />
+            <element signature="e#0#39#0" />
           </folding>
         </state>
       </provider>
@@ -718,7 +686,7 @@
         <state relative-caret-position="371">
           <caret line="133" column="49" lean-forward="true" selection-start-line="133" selection-start-column="49" selection-end-line="133" selection-end-column="49" />
           <folding>
-            <element signature="e#0#39#0" expanded="false" />
+            <element signature="e#0#39#0" />
           </folding>
         </state>
       </provider>
@@ -744,30 +712,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Week.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="31" column="42" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/LectureLink.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1679">
-          <caret line="76" column="42" selection-start-line="76" selection-start-column="14" selection-end-line="76" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/QuizLink.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="736">
-          <caret line="35" column="26" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Participants.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7360">
@@ -775,23 +719,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/LinkLink.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="25" column="46" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/CreateLecture.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="966">
-          <caret line="45" column="33" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/CreateQuiz.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1196">
+        <state relative-caret-position="884">
           <caret line="58" selection-start-line="58" selection-end-line="58" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
@@ -799,10 +729,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/CreateLecture.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="21" column="34" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Week.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="81" column="49" lean-forward="true" selection-start-line="81" selection-start-column="49" selection-end-line="81" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Course.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="842">
-          <caret line="146" column="41" lean-forward="true" selection-start-line="146" selection-start-column="41" selection-end-line="146" selection-end-column="41" />
+        <state relative-caret-position="276">
+          <caret line="156" column="45" lean-forward="true" selection-start-line="156" selection-start-column="45" selection-end-line="156" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/LoginForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="47" column="31" lean-forward="true" selection-start-line="47" selection-start-column="31" selection-end-line="47" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/LectureLink.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="581">
+          <caret line="102" column="20" lean-forward="true" selection-start-line="102" selection-start-column="20" selection-end-line="102" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/QuizLink.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="604">
+          <caret line="91" column="22" lean-forward="true" selection-start-line="91" selection-start-column="22" selection-end-line="91" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/LinkLink.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="589">
+          <caret line="89" column="16" lean-forward="true" selection-start-line="89" selection-start-column="16" selection-end-line="89" selection-end-column="16" />
         </state>
       </provider>
     </entry>

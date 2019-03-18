@@ -40,7 +40,7 @@ class LinkLink extends Component {
                                 console.log(data.data)
                             }
                         ).then(() => {
-                            window.location = "/course/" + this.state.courseId;
+                            window.location = "/course/" + this.state.course._id;
                         })
                     })
 
@@ -59,6 +59,7 @@ class LinkLink extends Component {
                     weekNo: link.weekNo,
                     title: link.title,
                     link: link.link,
+                    course: this.props.course
                 })
             })
             .then(() => {
@@ -88,7 +89,7 @@ class LinkLink extends Component {
             )
         } else {
             return (
-                <p>{this.props.id}</p>
+                <div/>
             )
 
         }

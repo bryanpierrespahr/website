@@ -217,6 +217,7 @@ export class Question extends Component {
                             onClick={this.finish}
                             bsSize="large"
                             type="submit"
+                            className="btn btn-custom"
                         >
                             Finish
                         </Button>

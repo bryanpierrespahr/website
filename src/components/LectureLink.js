@@ -43,7 +43,7 @@ class LectureLink extends Component {
                                 console.log(data.data)
                             }
                         ).then(() => {
-                            window.location = "/course/" + this.state.courseId;
+                            window.location = "/course/" + this.state.course._id;
                         })
                     })
 
@@ -67,7 +67,8 @@ class LectureLink extends Component {
                         weekNo: lecture.weekNo,
                         title: lecture.title,
                         link: lecture.link,
-                        lectureId: this.props.id
+                        lectureId: this.props.id,
+                        course: this.props.course
                     })
 
 
@@ -100,7 +101,7 @@ class LectureLink extends Component {
             )
         } else {
             return (
-                <p>{this.props.id}</p>
+                <div/>
             )
 
         }
