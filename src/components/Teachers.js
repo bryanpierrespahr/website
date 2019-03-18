@@ -129,9 +129,9 @@ class Teachers extends Component {
             formatter: this.detailsButton
         }];
 
-        if(sessionStorage.getItem('role' == "admin")){
+        console.log(sessionStorage.getItem("role"));
+        if(sessionStorage.getItem('role') == "admin"){
             return (
-
                 <div className="col-10 mx-auto">
                     <h3 className="titleMarginTop text-left">Teachers</h3>
                     <Table data={this.state.teachers}
@@ -155,9 +155,6 @@ class Teachers extends Component {
                            id="email"
                            sort="lastName"
                            search="a teacher"/>
-                    <Link className="btn btn-custom float-left" to="/teacher/add">
-                        Add a teacher
-                    </Link>
                     <NotificationContainer/>
                 </div>
             );

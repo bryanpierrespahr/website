@@ -5,12 +5,13 @@ const headers = {
     'Content-Type': 'application/json',
 }
 
-const burl = "http://10.196.2.47:3001";
+//const burl = "http://10.196.2.47:3001";
+const burl = "http://backend-backend.7e14.starter-us-west-2.openshiftapps.com";
 
 export default {
 
     login: function (send) {
-        return fetch(burl + '/user/login', {
+        return fetch('http://backend-backend.7e14.starter-us-west-2.openshiftapps.com/user/login', {
             method: 'POST',
             headers: headers,
             body: JSON.stringify(send)
@@ -189,6 +190,17 @@ export default {
             })
     },
 
+    patchUser: function (userId, user) {
+        return axios.patch(burl + "/user/" + userId, [{
+                "propName": "email", "value": user.email
+            }, {
+                "propName": "role", "value": user.role
+            }]
+            , {
+                headers: headers
+            })
+    },
+
     patchStudentCourses: function (studentId, courses) {
         return axios.patch(burl + "/student/" + studentId, [{
                 "propName": "courses", "value": courses
@@ -237,6 +249,10 @@ export default {
         return axios.post(burl + '/student', student, {headers: headers})
     },
 
+    postUser: function(user){
+        return axios.post(burl + '/user', user, {headers: headers})
+    },
+
     postTeacher: function (teacher) {
         return axios.post(burl + '/teacher', teacher, {headers: headers})
     },
@@ -267,6 +283,18 @@ export default {
 
     deleteTeacher: function (teacherId) {
         return axios.delete(burl + '/teacher/' + teacherId);
-    }
+    },
+
+    deleteLecture: function (lectureId) {
+        return axios.delete(burl + '/lecture/' + lectureId);
+    },
+
+    deleteQuiz: function (quizId) {
+        return axios.delete(burl + '/quiz/' + quizId);
+    },
+
+    deleteLink: function (linkId) {
+        return axios.delete(burl + '/link/' + linkId);
+    },
 
 }

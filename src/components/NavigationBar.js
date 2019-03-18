@@ -40,7 +40,7 @@ class NavigationBar extends Component {
             return (
                 <nav className="navbar navbar-expand-lg navbar-light">
                     <Link className="navbar-brand" to="/">
-                        <img src={require("../assets/moodle-logo.png")} width="80" alt="logo"/>
+                        <img src={require("../assets/hh-logo.JPG")} width="120" alt="logo"/>
                     </Link>
                     <button className="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -68,7 +68,7 @@ class NavigationBar extends Component {
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
                                 <div className="dropdown">
-                                    <button className="btn dropdown-toggle" type="button"
+                                    <button className="btn btn-custom dropdown-toggle" type="button"
                                             id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false">
                                         My account
@@ -88,7 +88,7 @@ class NavigationBar extends Component {
             return (
                 <nav className="navbar navbar-expand-lg navbar-light">
                     <Link className="navbar-brand" to="/">
-                        <img src={require("../assets/moodle-logo.png")} width="100" alt="logo"/>
+                        <img src={require("../assets/hh-logo.JPG")} width="120" alt="logo"/>
                     </Link>
                     <button className="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"

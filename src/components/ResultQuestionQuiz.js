@@ -32,27 +32,62 @@ class ResultQuestionQuiz extends Component {
             const question = this.state.question;
             const result = this.state.result;
 
-            return (
-                <div>
-                    <div className="row">
-                        <div className="col-md-2">
-                            <h5 className="text-left paddingTop10px">Question {this.props.index + 1}</h5>
-                        </div>
-                        <div className="col-md-10">
-                            <div className="row">
-                                <div className="col-md-12">
-                                    <h5 className="text-left paddingTop10px">{question.title}</h5>
-                                    {question.answers.map((answer) => {
-                                        return <Answer answer={answer} index={this.state.indexQuestion} result={result}/>
-                                    })}
+            const index = this.state.indexQuestion;
+            const studentAnswer = result.studentAnswers[index];
+            const correctAnswer = result.correctAnswers[index];
+
+            if(studentAnswer == correctAnswer){
+                return (
+                    <div>
+                        <div className="row">
+                            <div className="col-md-2">
+                                <h5 className="text-left paddingTop10px">Question {this.props.index + 1}</h5>
+                            </div>
+                            <div className="col-md-8">
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <h5 className="text-left paddingTop10px">{question.title}</h5>
+                                        {question.answers.map((answer) => {
+                                            return <Answer answer={answer} index={this.state.indexQuestion} result={result}/>
+                                        })}
+                                    </div>
                                 </div>
                             </div>
+                            <div className="col-md-2 my-auto">
+                                <img alt="result" src={require("../assets/correct.png")}
+                                     width="64px"/>
+                            </div>
                         </div>
-
                     </div>
-                </div>
 
-            )
+                )
+            }else{
+                return (
+                    <div>
+                        <div className="row">
+                            <div className="col-md-2">
+                                <h5 className="text-left paddingTop10px">Question {this.props.index + 1}</h5>
+                            </div>
+                            <div className="col-md-8">
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <h5 className="text-left paddingTop10px">{question.title}</h5>
+                                        {question.answers.map((answer) => {
+                                            return <Answer answer={answer} index={this.state.indexQuestion} result={result}/>
+                                        })}
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-md-2  my-auto">
+                                <img alt="result" src={require("../assets/incorrect.png")}
+                                     width="64px"/>
+                            </div>
+                        </div>
+                    </div>
+
+                )
+            }
+
         } else {
             return (
                 <div></div>

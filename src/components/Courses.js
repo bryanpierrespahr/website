@@ -153,9 +153,6 @@ class Courses extends Component {
                            id="code"
                            sort="name"
                            search="a course"/>
-                    <Link className="btn btn-custom float-left" to="/course/add">
-                        Add a course
-                    </Link>
                     <NotificationContainer/>
                 </div>
             );

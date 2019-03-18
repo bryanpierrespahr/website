@@ -36,7 +36,7 @@ class AddQuiz extends Component {
                         <div className="col">
                             <div className="text-left weekContent">
                                 <MdAdd></MdAdd>
-                                <Link to=
+                                <Link className="addA" to=
                                           {{
                                               pathname: "/" + this.props.type + "/add",
                                               courseId: this.state.course._id,

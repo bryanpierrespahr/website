@@ -44,7 +44,6 @@ class Answer extends Component {
                                 <span className="questionAnswer">{this.state.answer}</span>
                             </div>
                         </div>
-
                     </div>
                 )
 

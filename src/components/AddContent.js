@@ -24,7 +24,7 @@ class AddContent extends Component {
                     <div className="col">
                         <div className="text-left weekContent">
                             <MdAdd></MdAdd>
-                            <Link to={"/"+this.props.type+"/add"}>
+                            <Link className="addA" to={"/"+this.props.type+"/add"}>
                                 Add a {this.props.type}
                             </Link>
                         </div>

@@ -23,11 +23,14 @@ class Result extends Component {
 
             const result = this.state.result;
             const studentId = this.state.studentId;
+
+            console.log("quiz id : "+result.quizId);
+
             return (
 
                 <div className="row">
                     <div className="col-md-6">
-                        <a href={`/quiz/${result.quizId}/student/${studentId}`}>{result.title}</a>
+                        <a className="studentResult quizResultRef" href={`/quiz/${result.quizId}/student/${studentId}`}>{result.title}</a>
                     </div>
                     <div className="col-md-6">
                         <h5>{result.score} %</h5>

@@ -19,7 +19,6 @@ class QuestionQuiz extends Component {
                 ready: true,
             })
         })
-
     }
 
     render() {
@@ -27,8 +26,14 @@ class QuestionQuiz extends Component {
         if (this.state.ready) {
 
             const question = this.state.question;
-            const nbCorrect = question.nbCorrect;
-            const nbIncorrect = question.nbIncorrect;
+            var nbCorrect = question.nbCorrect;
+            if(question.nbCorrect == null){
+                nbCorrect = 0;
+            }
+            var nbIncorrect = question.nbIncorrect;
+            if(question.nbIncorrect == null){
+                nbIncorrect = 0;
+            }
             const answered = nbCorrect+nbIncorrect;
             var correctRate;
 

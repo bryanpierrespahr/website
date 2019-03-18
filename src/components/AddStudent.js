@@ -19,12 +19,21 @@ class AddStudent extends Component {
             lastName: this.state.lastName,
             email: this.state.email,
             password: this.state.password
-        }
+        };
+
+        const user = {
+            email: this.state.email,
+            password: this.state.password,
+            role: "student",
+        };
 
         API.postStudent(student).then(function (data) {
             window.location = "/students";
-        })
+        });
 
+        API.signup(user).then(function (data){
+            console.log(data);
+        });
 
     }
 

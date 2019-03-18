@@ -51,10 +51,12 @@ class CreateLink extends Component {
                         API.patchLinkWeek(this.state.weekId, linksId).then((data) => {
                                 console.log(data.data)
                             }
-                        )
+                        ).then(() => {
+                            window.location = "/course/" + this.state.courseId;
+                        })
                     })
 
-                window.location = "/course/" + this.state.courseId;
+               // window.location = "/course/" + this.state.courseId;
             })
     }
 
@@ -101,7 +103,7 @@ class CreateLink extends Component {
         }, () => {
             this.setState({
                 ready: true
-            })
+            }, () => console.log("Week id : "+this.state.weekId))
 
         })
     }

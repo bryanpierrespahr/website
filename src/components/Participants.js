@@ -46,10 +46,13 @@ class Participants extends Component {
                             var currentStudent = student.courses[z];
 
                             if (currentStudent.globalScore > this.state.bestScore)
+                            {
                                 this.setState({
                                     bestStudent: student,
                                     bestScore: currentStudent.globalScore
-                                })
+                                }, () => console.log(student))
+                            }
+
 
 
                             if (currentStudent.timeSpent > this.state.mostTime)
@@ -207,6 +210,14 @@ class Participants extends Component {
             const roundedBestGS = Math.round(bestGlobalScore * 100) / 100;
             const roundedLowestGS = Math.round(lowestGlobalScore * 100) / 100;
 
+            const courseId = this.state.courseId;
+            const bestStudent = this.state.bestStudent;
+            const mostTimeStudent = this.state.mostTimeStudent;
+            const mostAdvancedStudent = this.state.mostAdvancedStudent;
+            const lowestStudent = this.state.lowestStudent;
+            const lessTimeStudent = this.state.lessTimeStudent;
+            const lessAdvancedStudent = this.state.lessAdvancedStudent;
+
             return (
                 <div className="Participants">
                     <div className="row">
@@ -229,8 +240,8 @@ class Participants extends Component {
 
                         </div>
                     </div>
-                    <div className="row col-10 mx-auto">
-                        <div className="col-6">
+                    <div className="row col-10 noPadding mx-auto">
+                        <div className="col-6 noPadding">
                             <table className="customTable">
                                 <tr>
                                     <th></th>
@@ -240,28 +251,28 @@ class Participants extends Component {
                                     <th></th>
                                 </tr>
                                 <tr>
-                                    <td className="tablerow fw600 green">Best student :</td>
+                                    <td className="tablerow leaderboard fw600 green">Best student :</td>
                                     <td
-                                        className="tablerow"> {this.state.bestStudent.firstName} {this.state.bestStudent.lastName} </td>
-                                    <td className="tablerow"></td>
-                                    <td className="tablerow fw600 green">Average score :</td>
-                                    <td className="tablerow"> {roundedBestGS} % </td>
+                                        className="tablerow leaderboard "> <a className="leaderboardRef" href={`/student/${bestStudent._id}/course/${courseId}`}>{bestStudent.firstName} {bestStudent.lastName}</a> </td>
+                                    <td className="tablerow leaderboard"></td>
+                                    <td className="tablerow leaderboard fw600 green">Average score :</td>
+                                    <td className="tablerow leaderboard"> {roundedBestGS} % </td>
                                 </tr>
                                 <tr>
-                                    <td className="tablerow fw600 green">Most advanced student :</td>
+                                    <td className="tablerow leaderboard fw600 green">Most advanced student :</td>
                                     <td
-                                        className="tablerow"> {this.state.mostAdvancedStudent.firstName} {this.state.mostAdvancedStudent.lastName} </td>
-                                    <td className="tablerow"></td>
-                                    <td className="tablerow fw600 green">% Done :</td>
-                                    <td className="tablerow"> {this.state.mostAdvancedStudent.courses.percentage}</td>
+                                        className="tablerow leaderboard"> <a className="leaderboardRef" href={`/student/${mostAdvancedStudent._id}/course/${courseId}`}> {mostAdvancedStudent.firstName} {mostAdvancedStudent.lastName} </a></td>
+                                    <td className="tablerow leaderboard"></td>
+                                    <td className="tablerow leaderboard fw600 green">% Done :</td>
+                                    <td className="tablerow leaderboard"> {mostAdvancedStudent.courses.percentage}</td>
                                 </tr>
                                 <tr>
-                                    <td className="tablerow fw600 green">Most dedicated student :</td>
+                                    <td className="tablerow leaderboard fw600 green">Most dedicated student :</td>
                                     <td
-                                        className="tablerow"> {this.state.mostTimeStudent.firstName} {this.state.mostTimeStudent.lastName} </td>
-                                    <td className="tablerow"></td>
-                                    <td className="tablerow fw600 green">Time spent :</td>
-                                    <td className="tablerow"> {this.state.lessTimeStudent.courses.timeSpent} </td>
+                                        className="tablerow leaderboard"> <a className="leaderboardRef" href={`/student/${mostTimeStudent._id}/course/${courseId}`}> {mostTimeStudent.firstName} {mostTimeStudent.lastName} </a></td>
+                                    <td className="tablerow leaderboard"></td>
+                                    <td className="tablerow leaderboard fw600 green">Time spent :</td>
+                                    <td className="tablerow leaderboard"> {this.state.lessTimeStudent.courses.timeSpent} </td>
                                 </tr>
                             </table>
                         </div>
@@ -275,28 +286,28 @@ class Participants extends Component {
                                     <th></th>
                                 </tr>
                                 <tr>
-                                    <td className="tablerow fw600 red">Lowest student :</td>
+                                    <td className="tablerow leaderboard fw600 red">Lowest student :</td>
                                     <td
-                                        className="tablerow"> {this.state.lowestStudent.firstName} {this.state.lowestStudent.lastName} </td>
-                                    <td className="tablerow"></td>
-                                    <td className="tablerow fw600 red">Average score :</td>
-                                    <td className="tablerow"> {roundedLowestGS} %</td>
+                                        className="tablerow leaderboard"> <a className="leaderboardRef" href={`/student/${lowestStudent._id}/course/${courseId}`}> {lowestStudent.firstName} {lowestStudent.lastName} </a></td>
+                                    <td className="tablerow leaderboard"></td>
+                                    <td className="tablerow leaderboard fw600 red">Average score :</td>
+                                    <td className="tablerow leaderboard"> {roundedLowestGS} %</td>
                                 </tr>
                                 <tr>
-                                    <td className="tablerow fw600 red">Less advanced student :</td>
+                                    <td className="tablerow leaderboard fw600 red">Less advanced student :</td>
                                     <td
-                                        className="tablerow"> {this.state.lessAdvancedStudent.firstName} {this.state.lessAdvancedStudent.lastName} </td>
-                                    <td className="tablerow"></td>
-                                    <td className="tablerow fw600 red">% Done :</td>
-                                    <td className="tablerow"> {this.state.lessAdvancedStudent.courses.percentage} </td>
+                                        className="tablerow leaderboard"> <a className="leaderboardRef" href={`/student/${lessAdvancedStudent._id}/course/${courseId}`}> {lessAdvancedStudent.firstName} {lessAdvancedStudent.lastName}</a> </td>
+                                    <td className="tablerow leaderboard"></td>
+                                    <td className="tablerow leaderboard fw600 red">% Done :</td>
+                                    <td className="tablerow"> {lessAdvancedStudent.courses.percentage} </td>
                                 </tr>
                                 <tr>
-                                    <td className="tablerow fw600 red">Less dedicated student :</td>
+                                    <td className="tablerow leaderboard fw600 red">Less dedicated student :</td>
                                     <td
-                                        className="tablerow"> {this.state.lessTimeStudent.firstName} {this.state.lessTimeStudent.lastName} </td>
-                                    <td className="tablerow"></td>
-                                    <td className="tablerow fw600 red">Time spent :</td>
-                                    <td className="tablerow"> {this.state.lowestStudent.courses.timeSpent} </td>
+                                        className="tablerow leaderboard"> <a className="leaderboardRef" href={`/student/${lessTimeStudent._id}/course/${courseId}`}> {lessTimeStudent.firstName} {lessTimeStudent.lastName} </a></td>
+                                    <td className="tablerow leaderboard"></td>
+                                    <td className="tablerow leaderboard fw600 red">Time spent :</td>
+                                    <td className="tablerow leaderboard"> {lowestStudent.courses.timeSpent} </td>
                                 </tr>
                             </table>
                         </div>
@@ -311,11 +322,9 @@ class Participants extends Component {
             return (
 
                 <div>
-                    <h1>test</h1>
-                    <h3>There is no student</h3>
-                    <Link className="btn btn-custom float-left" to="students/add">
-                        Add a student
-                    </Link>
+
+                    <h3 className="marginTop20px">There is no student</h3>
+
                 </div>
 
             )

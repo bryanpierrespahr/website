@@ -54,20 +54,32 @@ table > tr {
 
 .weekContent {
     padding-top: 4px;
+    font-size: 16px;
+    font-weight: 600;
 }
 
 .marginLeft5px {
     margin-left: 5px;
 }
 
-.weekTitle {
-    margin-top: 6px;
+.weekRow:hover #hide {
+  display: inline-block;
 }
 
-.tablerow {
+.containerWeek{
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.5);
+}
+
+.tablerow{
     text-align: left;
     border: none;
     padding: 0 6px 0 8px;
+}
+
+#hide{
+    display: none;
 }
 
 .customTable {
@@ -77,6 +89,7 @@ table > tr {
 }
 
 .leaderboard {
+    margin-top: 5%;
     margin-bottom: 2%
 }
 
@@ -111,9 +124,9 @@ table > tr {
 }
 
 .btn-custom {
-
+    cursor:pointer;
     color: black;
-    background-color: #f37d29;
+    background-color: #83C669;
     border-color: black;
 
 }
@@ -122,9 +135,15 @@ table > tr {
     color: white
 }
 
+.btn-custom:focus, .btn-custom:active {
+    color: white;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
 .page-item.active .page-link {
-    background-color: #f37d29;
-    border-color: #f37d29;
+    background-color: #83C669;
+    border-color: #83C669;
 }
 
 .page-link {
@@ -132,15 +151,16 @@ table > tr {
 }
 
 .page-link:hover {
-    color: #f37d29;
+    color: #83C669;
 }
 
 .ft-logo{
     margin-top: 50px;
+    margin-bottom: 5px;
 }
 
 .footer-title{
-    color: #f37d29;
+    color: #83C669;
     font-weight: 600;
 }
 
@@ -149,11 +169,11 @@ table > tr {
 }
 
 .footer-links:hover{
-    color: #f37d29;
+    color: #83C669;
 }
 
 .copyright-links{
-    color: #f37d29;
+    color: #83C669;
 }
 
 .copyright-links:hover {
@@ -161,12 +181,8 @@ table > tr {
 }
 
 .form-control:focus {
-    border-color: #f37d29;
+    border-color: #83C669;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(243,125,41, 0.6);
-}
-
-.login-form {
-    margin-top: 60px;
 }
 
 .newsletter-form .form-control {
@@ -186,7 +202,7 @@ form[role="login"] {
 
 
 .login-form {
-    margin-top: 60px;
+    margin-top: 30px;
 }
 
 form[role=login] {
@@ -225,7 +241,7 @@ form[role=login] > div {
 }
 
 .customLogin, .customLogin:active, .customLogin:visited, .customLogin:focus, .customLogin:link {
-    color: #f37d29;
+    color: #83C669;
 }
 
 .customLogin:hover {
@@ -236,4 +252,139 @@ form[role=login] > div {
 
 .form-gap {
     padding-top: 70px;
+}
+
+.courseTitle {
+    margin-top : 10px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.addA{
+    margin-bottom: 10px;
+}
+
+.btn-week{
+    margin-top: 20px;
+}
+
+.leaderboard{
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.leaderboardRef{
+    color : black;
+    text-decoration: none;
+}
+
+.leaderboardRef:hover{
+    color : #83C669;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.profilePicture{
+    margin-bottom: 6px;
+    padding-bottom: 6px;
+}
+
+.profile{
+    padding-top: 10px;
+    font-size: 22px;
+    margin-bottom: 2px;
+}
+
+.studentResult{
+    font-size: 20px;
+    margin-bottom: 6px;
+}
+
+.resultTitle{
+    margin-top: 15px;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+}
+
+.simpleBorder{
+    border-bottom:  1px solid black;
+}
+
+.quizResultRef{
+    color: #83C669;
+}
+
+.quizResultRef:hover{
+    color: black;
+    background-color: #83C669;
+    background-color: #83C669;
+    text-decoration: none;
+    border-radius: 12px;
+    padding: 3px
+}
+
+.paddingBottom15{
+    padding-bottom: 15px;
+}
+
+.paddingTop20{
+    padding-top: 20px;
+}
+
+.average{
+    margin-top: 10px;
+    padding-top: 5px;
+    border-top: black solid 1px;
+    border-bottom: double black;
+}
+
+.noPaddingH{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.emailicon{
+    position: absolute;
+    margin-top: 3px;
+    text-align: center;
+    padding-left: 3px;
+}
+
+.buttonEmail{
+    padding-right: 30px;
+}
+
+.homePageTitle{
+    font-size: 36px;
+    margin-top: 30px;
+}
+
+.nav-link{
+    font-size: 18px;
+    color: black;
+}
+
+.navbar-light, .navbar-nav, .nav-link{
+    color:#83C669 ;
+}
+
+.navbar-light:hover, .navbar-nav:hover, .nav-link:hover{
+    color:#83C669 !important;
+}
+
+a {
+    color: #83C669;
+}
+
+a:hover{
+    color:black
+}
+
+.deleteWeekContent{
+    margin-left: 10px;
+    cursor: pointer
+}
+
+.marginTop20px{
+    margin-top: 20px;
 }

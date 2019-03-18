@@ -79,6 +79,23 @@ class Course extends Component {
         }
     }
 
+    //Method that returns a custom "Participants" button
+    participantsButton = (cell) => {
+
+        return (
+
+            <Link className="btn btn-warning" to=
+                {{
+                    pathname: "/course/edit",
+                    param1: cell
+                }}
+            >
+                Edit
+            </Link>
+
+        );
+    };
+
     componentDidMount() {
 
 
@@ -106,7 +123,7 @@ class Course extends Component {
                 type: course.type,
                 schedule: course.schedule,
                 weeksId: course.weeksId
-            })
+            }, () => console.log("weeks id "+this.state.weeksId));
 
 
         }).then(() => {
@@ -124,8 +141,22 @@ class Course extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col">
-                            <h2>{this.state.name}</h2>
+                            <h2 className="courseTitle">{this.state.name}</h2>
                         </div>
+                    </div>
+                    <div className="row">
+                        <div className="col text-right">
+                            <Link className="btn btn-custom" to=
+                                {{
+                                    pathname: "/" + this.state.course._id + "/students",
+                                    courseId: this.state.course._id,
+                                    course: this.state.course
+                                }}
+                            >
+                                Participants
+                            </Link>
+                        </div>
+
                     </div>
                     <div className="row">
                         <div className="col">
@@ -135,20 +166,13 @@ class Course extends Component {
                                 })
                             }
                         </div>
-                        <div>
-                            <Link to=
-                                      {{
-                                          pathname: "/" + this.state.course._id + "/students",
-                                          courseId: this.state.course._id,
-                                          course: this.state.course
-                                      }}
-                            >
-                                Participants
-                            </Link>
-                        </div>
+
                     </div>
                     <div className="row">
-                        <button onClick={this.addWeek}>Add a week</button>
+                        <div className="col-md-12 move-left">
+                            <button className="btn btn-custom btn-week" onClick={this.addWeek}>Add a week</button>
+                        </div>
+
                     </div>
                 </div>
 

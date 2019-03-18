@@ -25,7 +25,7 @@ class Student extends Component {
 
         API.patchStudent(this.props.location.param1, student).then(() => {
             window.location = "/students"
-        })
+        });
 
     }
 

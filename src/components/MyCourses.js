@@ -35,6 +35,7 @@ class MyCourses extends Component {
     componentDidMount() {
 
         const teacherId = sessionStorage.getItem('teacherId');
+        console.log("Teacher id :"+teacherId);
         this.setState({
             teacherId: teacherId
         })
@@ -46,8 +47,8 @@ class MyCourses extends Component {
                 var courses = data.data;
 
                 for (var i = 0; i < courses.length; i++) {
-                    console.log(courses[i].teacherId)
-                    console.log(teacherId)
+                    console.log("Course teach id "+courses[i].teacherId);
+                    console.log("Teacher id "+teacherId);
                     if (courses[i].teacherId == teacherId)
                         myCourses.push(courses[i])
                 }

@@ -23,6 +23,8 @@ class CreateLecture extends Component {
             type: this.state.type,
         }
 
+        console.log(lecture);
+
 
         API.postLecture(lecture).then(function (data) {
 
@@ -44,11 +46,10 @@ class CreateLecture extends Component {
                         API.patchLectureWeek(this.state.weekId, lecturesId).then((data) => {
                                 console.log(data.data)
                             }
-                        )
+                        ).then(() => {
+                            window.location = "/course/" + this.state.courseId;
+                        })
                     })
-
-
-                window.location = "/course/" + this.state.courseId;
             })
     }
 
@@ -92,7 +93,7 @@ class CreateLecture extends Component {
         }, () => {
             this.setState({
                 ready: true
-            })
+            }, () =>  console.log("Week id : "+this.state.weekId))
 
         })
     }

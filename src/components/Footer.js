@@ -23,11 +23,11 @@ class Footer extends Component {
                     <div className="row ">
                         <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                             <div className="ft-logo">
-                                <img src={require("../assets/moodle-logo-large.png")} width="55%%" alt="logo"/>
+                                <img src={require("../assets/moodle-logo-large.png")} width="35%" alt="logo"/>
                             </div>
                         </div>
                     </div>
-                    <ColoredLine color="#f37d29" className="footer-line"/>
+                    <ColoredLine color="#83C669" className="footer-line"/>
                     <div className="row ">
                         <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 ">
                             <div className="footer-widget ">
@@ -57,13 +57,16 @@ class Footer extends Component {
                                 <div className="footer-title">Social</div>
                                 <ul className="list-unstyled">
                                     <li><a className="footer-links"
-                                           href="https://twitter.com/AlphaFitnessFI">Twitter</a></li>
+                                           href="https://twitter.com/haagaheliaamk">Twitter</a></li>
                                     <li><a className="footer-links"
-                                           href="https://plus.google.com/111334605642927884463">Google +</a></li>
-                                    <li><a className="footer-links" href="www.linkedin.com/in/alphafitness">Linked
+                                           href="https://www.youtube.com/user/HAAGAHELIAviestinta">YouTube</a></li>
+                                    <li><a className="footer-links" href="https://www.linkedin.com/company/haaga-helia-university-of-applied-sciences">Linked
                                         In</a></li>
                                     <li><a className="footer-links"
-                                           href="https://www.facebook.com/Alpha-Fitness-1088246158018276">Facebook</a>
+                                           href="https://www.facebook.com/HaagaHeliaAMK/">Facebook</a>
+                                    </li>
+                                    <li><a className="footer-links"
+                                           href="https://www.instagram.com/haagahelia/">Instagram</a>
                                     </li>
                                 </ul>
                             </div>

@@ -64,10 +64,10 @@ class CreateQuiz extends Component {
                         API.patchQuizWeek(this.state.weekId, quizzesId).then((data) => {
                                 console.log(data.data)
                             }
-                        )
+                        ).then(() => {
+                            window.location = "/course/" + this.state.courseId;
+                        })
                     })
-
-                window.location = "/course/" + this.state.courseId;
             })
     }
 

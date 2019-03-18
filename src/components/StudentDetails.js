@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import Result from "../components/Result"
 import API from "../utils/api";
+import {Link} from "react-router-dom";
+import {MdMailOutline} from "react-icons/md";
 
 class StudentDetails extends Component {
 
@@ -35,7 +37,19 @@ class StudentDetails extends Component {
         this.setState({
             courseId: courseId,
             studentId: studentId,
-        })
+        });
+
+        let course;
+
+        API.getCourse(courseId)
+            .then((data) => {
+                course = data.data;
+                this.setState({
+                    course: course
+                })
+            }).catch((error) => {
+            console.error(error);
+        });
 
         var student;
 
@@ -82,105 +96,124 @@ class StudentDetails extends Component {
             return (
 
                 <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <img alt="Bootstrap Image Preview"
-                                 src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg"/>
+
+                    <div className="profile paddingBottom15">
+                        <div className="row">
+                            <div className="col-md-12 profilePicture">
+                                <img alt="Student profile picture"
+                                     src="https://reliablehomeoffer.com/wp-content/uploads/sites/3/2016/02/student-profile-simone-bianchi-piantini.jpg"
+                                     width="200"/>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h3>
-                                {this.state.student.firstName} {this.state.student.lastName}
-                            </h3>
+                        <div className="row">
+                            <div className="col-md-12">
+                                <p className="profile">
+                                    {this.state.student.firstName} {this.state.student.lastName}
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h3>
-                                {this.state.student.email}
-                            </h3>
+                        <div className="row">
+                            <div className="col-md-12">
+                                <p className="profile">
+                                    {this.state.student.email}
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h3>
-                                {this.state.student.number}
-                            </h3>
+                        <div className="row">
+                            <div className="col-md-12">
+                                <p className="profile">
+                                    {this.state.student.number}
+                                </p>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-12">
+                                <p className="profile">
+                                    <a className="marginLeft5px" href={'/quiz/'+this.state.quizId}>{this.state.title}</a>
+                                    <a className="btn btn-custom buttonEmail" href={"mailto:"+this.state.student.email+"?subject="+this.state.course.name+" course"}>
+                                        Contact him
+                                        <MdMailOutline className="emailicon" size="1.2em"></MdMailOutline>
+                                    </a>
+
+                                </p>
+                            </div>
                         </div>
                     </div>
                     <br/>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h3 className="text-left">
-                                Overview
-                            </h3>
+                    <div className="col-md-8 mx-auto">
+                        <div className="row">
+                            <div className="col-md-12">
+                                <h3 className="resultTitle simpleBorder">
+                                    Overview
+                                </h3>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-6">
+                                <p className="studentResult">
+                                    Global score
+                                </p>
+                            </div>
+                            <div className="col-md-6">
+                                <p className="studentResult">
+                                    {roundedGS} %
+                                </p>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-6">
+                                <p className="studentResult">
+                                    % Done
+                                </p>
+                            </div>
+                            <div className="col-md-6">
+                                <p className="studentResult">
+                                    {this.state.student.courses.percentage} %
+                                </p>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-6">
+                                <p className="studentResult">
+                                    Time spent
+                                </p>
+                            </div>
+                            <div className="col-md-6">
+                                <p className="studentResult">
+                                    {this.state.student.courses.timeSpent}
+                                </p>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-12">
+                                <h3 className="resultTitle simpleBorder">
+                                    Results
+                                </h3>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-12">
+                                {
+                                    this.state.student.courses.globalResults.map(result => {
+                                        return <Result result={result} studentId={this.state.student._id}/>
+                                    })
+                                }
+                            </div>
+                        </div>
+                        <div className="row average">
+                            <div className="col-md-6">
+                                <p className="studentResult">
+                                    Average
+                                </p>
+                            </div>
+                            <div className="col-md-6">
+                                <p className="studentResult">
+                                    {roundedGS} %
+                                </p>
+                            </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h3>
-                                Global score
-                            </h3>
-                        </div>
-                        <div class="col-md-6">
-                            <h3>
-                                {roundedGS} %
-                            </h3>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h3>
-                                % Done
-                            </h3>
-                        </div>
-                        <div class="col-md-6">
-                            <h3>
-                                {this.state.student.courses.percentage} %
-                            </h3>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h3>
-                                Time spent
-                            </h3>
-                        </div>
-                        <div class="col-md-6">
-                            <h3>
-                                {this.state.student.courses.timeSpent}
-                            </h3>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h3 className="text-left">
-                                Results
-                            </h3>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            {
-                                this.state.student.courses.globalResults.map(result => {
-                                    return <Result result={result} studentId={this.state.student._id}/>
-                                })
-                            }
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h3>
-                                Average
-                            </h3>
-                        </div>
-                        <div class="col-md-6">
-                            <h3>
-                                {roundedGS} %
-                            </h3>
-                        </div>
-                    </div>
+
                 </div>
 
             )

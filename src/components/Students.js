@@ -161,9 +161,6 @@ class Students extends Component {
                            id="number"
                            sort="lastName"
                            search="a student"/>
-                    <Link className="btn btn-custom float-left" to="/student/add">
-                        Add a student
-                    </Link>
                     <NotificationContainer/>
                 </div>
             );

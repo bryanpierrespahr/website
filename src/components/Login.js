@@ -1,6 +1,7 @@
 import React from 'react';
 import {Button, FormGroup, FormControl, ControlLabel} from "react-bootstrap";
 import API from '../utils/api';
+import LoginForm from "./LoginForm";
 
 export class Login extends React.Component {
 
@@ -62,39 +63,12 @@ export class Login extends React.Component {
     render() {
 
         return (
-            <div className="container">
-                <div className="row" id="pwd-container">
-                    <div className="col-md-3"/>
-                    <div className="col-md-6">
-                        <section className="login-form">
-                            <form role="login">
-                                <img src={require("../assets/moodle-logo.png")} width="180" className="img-responsive"
-                                     alt="logo"/>
-                                <input type="email" name="email" id="email" placeholder="Email" required
-                                       className="form-control input-lg" value={this.state.email}
-                                       onChange={this.handleChange}/>
-
-                                <input type="password" className="form-control input-lg" id="password" name="password"
-                                       placeholder="Password" required
-                                       value={this.state.password}
-                                       onChange={this.handleChange}
-                                />
-
-                                <div className="pwstrength_viewport_progress"/>
-
-                                <button className="btn btn-lg btn-custom btn-block"
-                                        onClick={this.send}>Sign in
-                                </button>
-                                <div>
-                                    Don't have an account yet ? <a className="customLogin" href="/signup">Sign up
-                                    now </a>
-                                </div>
-                            </form>
-                        </section>
-                    </div>
-                    <div className="col-md-3"></div>
-                </div>
+            <div>
+                <div className="paddingTop20"/>
+                <LoginForm/>
             </div>
+
+
         )
     }
 }

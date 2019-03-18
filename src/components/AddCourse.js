@@ -185,7 +185,8 @@ class AddCourse extends Component {
                                         value={this.state.level} onChange={this.inputChanged}
                                         required
                                 >
-                                    <option value="Profil studies">Profil studies</option>
+                                    <option value="Profesionnal studies">Profesionnal studies</option>
+                                    <option value="Optional studies">Optional studies</option>
                                 </select>
                             </div>
                             <div className="form-group col-md-6 mx-auto">

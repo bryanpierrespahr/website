@@ -21,7 +21,7 @@ class AddLecture extends Component {
         }, () => {
             this.setState({
                 ready: true
-            })
+            }, () => console.log(this.state.weekNo))
         })
 
     }
