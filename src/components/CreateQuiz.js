@@ -231,6 +231,7 @@ class CreateQuiz extends Component {
                         </div>
                     </ValidationForm>
                     <Button
+                        className="btn btn-custom"
                         onClick={this.getInfo}
                         bsSize="large"
                         type="submit"

@@ -323,8 +323,6 @@ class Participants extends Component {
 
                 <div>
 
-                    <h3 className="marginTop20px">There is no student</h3>
-
                 </div>
 
             )

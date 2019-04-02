@@ -8,21 +8,17 @@ const {SearchBar} = Search;
 
 //Component class that renders a fully customized and responsive table using 'react-bootstrap-table2'
 export class Table extends Component {
-
     render() {
-
         //Define the default sorting options (col & asc)
         const defaultSorted = [{
             dataField: this.props.sort,
             order: 'asc'
         }];
-
         //Define pagination options
         const customTotal = (from, to, size) => (
             <span className="react-bootstrap-table-pagination-total">
             </span>
         );
-
         //Define the options of the table (nb of rows/pagination, etc)
         const options = {
             paginationSize: 10,
@@ -44,36 +40,8 @@ export class Table extends Component {
             }]
         };
 
-        // //Check if the props selectable is true
-        // if (this.props.selectable === "true") {
-        //     //Return the custom table with Search Bar and selectable rows
-        //     return (
-        //         <ToolkitProvider
-        //             keyField={this.props.id}
-        //             data={this.props.data}
-        //             columns={this.props.columns}
-        //             noDataIndication={'no results found'}
-        //             search
-        //         >{props => (
-        //             <div>
-        //                 <br/><SearchBar  {...props.searchProps}
-        //                                  className="custom-search-field"
-        //                                  delay={1000}
-        //                                  placeholder={`Search ${this.props.search}`}/><br/>
-        //                 <BootstrapTable bootdefaultSorted={defaultSorted}
-        //                                 selectRow={this.props.selectRow} {...props.baseProps}
-        //                                 pagination={paginationFactory(options)}/>
-        //             </div>
-        //         )}
-        //         </ToolkitProvider>
-        //     )
-        // } else {
-
-        console.log(this.props.id);
-
+        //Return a custom table with a search bar
         return (
-            //Return the custom table with Search Bar
-
             <ToolkitProvider
                 keyField={this.props.id}
                 data={this.props.data}
@@ -90,10 +58,7 @@ export class Table extends Component {
                                     pagination={paginationFactory(options)}/>
                 </div>
             )}
-            </ToolkitProvider>
-        )
+            </ToolkitProvider>)
     }
-
 }
-
 export default Table;

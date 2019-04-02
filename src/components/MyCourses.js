@@ -8,7 +8,7 @@ import API from '../utils/api.js';
 class MyCourses extends Component {
 
     //Method that returns a custom "select" button
-    detailsButton = (cell) => {
+    manageButton = (cell) => {
 
         return (
 
@@ -18,7 +18,7 @@ class MyCourses extends Component {
                     courseId: cell
                 }}
             >
-                Details
+                Manage
             </Link>
 
         );
@@ -81,8 +81,8 @@ class MyCourses extends Component {
             sort: true
         }, {
             dataField: '_id',
-            text: 'Details',
-            formatter: this.detailsButton
+            text: 'Manage',
+            formatter: this.manageButton
         }];
 
         if(this.state.courses.length < 1){

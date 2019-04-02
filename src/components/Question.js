@@ -133,6 +133,7 @@ export class Question extends Component {
                             </div>
                         </ValidationForm>
                         <Button
+                            className="btn btn-custom"
                             onClick={this.reset}
                             bsSize="large"
                             type="submit"

@@ -135,6 +135,7 @@ class Students extends Component {
             formatter: this.detailsButton
         }];
 
+        //Verify if the user connected is an admin
         if(sessionStorage.getItem('role') == "admin"){
             return (
 
